@@ -27,6 +27,11 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
     width: 50%;
   }
 }
+@media screen and (min-width: 1200px){
+  .login{
+    width: 30%;
+  }
+}
 
 // Component styles are injected through grunt
 /* inject:scss */
