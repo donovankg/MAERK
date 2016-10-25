@@ -2,11 +2,16 @@
   <div class="container">
 <!--toolbar added -->
     <md-toolbar>
-      <span>
+      <div class="md-toolbar-tools">
+
+<md-button class="md-fab md-mini" ng-click="toggleLeft()">
+        </md-button>
+
       <a href="/" class="navbar-brand">
-        <img src="/assets/images/ksquare-logo.png" alt="" />
+        Maerk
       </a>
-    </span>
+
+    Hello {{ nav.getCurrentUser().name }}
         <span flex></span>
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
@@ -15,6 +20,7 @@
           <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
           <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
         </ul>
+      </div>
 
     </md-toolbar>
 
@@ -45,9 +51,7 @@
 
     <md-content flex="" layout-padding="">
 
-          <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md="">
-            Toggle left
-          </md-button>
+
   </section>
 
 </div>
