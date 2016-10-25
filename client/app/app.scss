@@ -19,17 +19,22 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-
+.md-slidenav-left{
+  background: red;
+}
   .container {
-    max-width: 730px;
+//    max-width: 730px;
   }
   .login{
     width: 50%;
   }
 }
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1280px){
   .login{
     width: 30%;
+  }
+  .pinkNav{
+  	display: none;
   }
 }
 
