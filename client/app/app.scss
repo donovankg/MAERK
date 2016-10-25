@@ -20,11 +20,11 @@ ul{
   padding: 0.2em 0;
 }
 
+.navMargOff{
+  margin: 0;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-.md-slidenav-left{
-  background: red;
-}
   .container {
 //    max-width: 730px;
   }
@@ -32,7 +32,12 @@ ul{
     width: 50%;
   }
 }
+
 @media screen and (min-width: 1280px){
+  .posAbs{
+     position: absolute;
+  }
+
   .login{
     width: 30%;
   }
