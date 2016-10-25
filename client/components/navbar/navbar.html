@@ -4,21 +4,25 @@
 
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <md-button ng-controller="sideNavCtrl"class="md-fab md-mini pinkNav" ng-click="toggleLeft()">
-      </md-button>
 
+          <i class="fa fa-bars pinkNav" aria-hidden="true" ng-show="nav.isLoggedIn()" ng-controller="sideNavCtrl"ng-click="toggleLeft()"></i>
+
+              <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p>
+        <span flex></span>
       <a href="/" class="navbar-brand">
+
         Maerk
       </a>
 
-    Hello {{ nav.getCurrentUser().name }}
+
+
         <span flex></span>
         <ul class="nav navbar-nav navbar-right">
           <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
           <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-          <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
-          <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-          <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog">Settings</span></a></li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text"><a ui-sref="logout">Logout</a></li>
         </ul>
       </div>
 
@@ -31,10 +35,8 @@
 
     <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
-        </li>
-        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
+
+
       </ul>
 
     </div>
