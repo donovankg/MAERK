@@ -10,19 +10,13 @@ class sideNavCtrl {
   isCollapsed = true;
   //end-non-standard
 
-  constructor(Auth) {
-    this.isLoggedIn = Auth.isLoggedIn;
-    this.isAdmin = Auth.isAdmin;
-    this.getCurrentUser = Auth.getCurrentUser;
-  }
-
 }
 
 
 angular.module('maerkApp')
 .controller('sideNavCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.testthis = "You"
+    $scope.test = "You"
 
     /**
      * Supplies a function that will continue to operate until the
@@ -51,7 +45,6 @@ angular.module('maerkApp')
         $mdSidenav(navID)
           .toggle()
           .then(function () {
-            $log.debug("toggle " + navID + " is done");
           });
       }, 200);
     }
@@ -67,10 +60,6 @@ angular.module('maerkApp')
   })
   .controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.close = function () {
-      $mdSidenav('left').close()
-        .then(function () {
-          $log.debug("close LEFT is done");
-        });
-
+       $mdSidenav('left').close()
     };
   })

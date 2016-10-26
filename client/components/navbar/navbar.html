@@ -1,24 +1,20 @@
-<div class="" ng-controller="NavbarController">
+<div class="">
   <div class="container">
 <!--toolbar added -->
 
     <md-toolbar>
-      <div class="md-toolbar-tools">
+      <div class="md-toolbar-tools" ng-controller="sideNavCtrl">
 
-          <i class="fa fa-bars pinkNav" aria-hidden="true" ng-show="nav.isLoggedIn()"
-            ng-controller="sideNavCtrl" ng-click="toggleLeft()"></i>
+          <i class="fa fa-bars pinkNav" aria-hidden="true"
+             ng-click="toggleLeft()"></i>
 
               <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p>
         <span flex></span>
-      <a href="/" class="navbar-brand">
-
-        Maerk
+      <a href="/main" class="navbar-brand">
+        Maerk<h2>{{test}}</h2>
       </a>
-
-
-
         <span flex></span>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController">
           <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
           <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li>
           <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span>Settings</span></a></li>
