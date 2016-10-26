@@ -22,10 +22,6 @@ class sideNavCtrl {
 angular.module('maerkApp')
 .controller('sideNavCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.toggleRight = buildToggler('right');
-    $scope.isOpenRight = function(){
-      return $mdSidenav('right').isOpen();
-    };
     $scope.testthis = "You"
 
     /**
@@ -79,11 +75,3 @@ angular.module('maerkApp')
 
     };
   })
-  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug("close RIGHT is done");
-        });
-    };
-  });

@@ -1,8 +1,8 @@
 
 <!--  Side Nav -->
 
-<div ng-controller="sideNavCtrl" layout="column" ng-cloak="" class="sidenavdemoBasicUsage posAbs" ng-app="MyApp">
-  <section layout="row" flex="">
+<div ng-controller="sideNavCtrl" flex layout ="row" layout-fill ng-cloak="" class="sidenavdemoBasicUsage posAbs" ng-app="MyApp">
+  <section>
 
     <md-sidenav class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 
@@ -11,9 +11,9 @@
       </md-toolbar>
       <md-content layout-padding="" ng-controller="LeftCtrl">
 <ul>
-            <li><span class="icon-bar">mock 1</span></li>
-            <li><span class="icon-bar">mock 2</span></li>
-            <li><span class="icon-bar">mock 3</span></li>
+            <li><span class="icon-bar"><md-button>mock 1</md-button></span></li>
+            <li><span class="icon-bar"><md-button>mock 2</md-button></span></li>
+            <li><span class="icon-bar"><md-button>mock 3</md-button></span></li>
 
 </ul>
 

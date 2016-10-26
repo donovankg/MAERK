@@ -18,10 +18,9 @@
 
         <span flex></span>
         <ul class="nav navbar-nav navbar-right">
-          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
           <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
           <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li>
-          <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog">Settings</span></a></li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span>Settings</span></a></li>
           <li ng-show="nav.isLoggedIn()" class="navbar-text"><a ui-sref="logout">Logout</a></li>
         </ul>
       </div>
