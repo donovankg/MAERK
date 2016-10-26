@@ -55,7 +55,6 @@ angular.module('maerkApp')
           });
       }, 200);
     }
-
     function buildToggler(navID) {
       return function() {
         $mdSidenav(navID)

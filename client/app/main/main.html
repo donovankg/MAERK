@@ -1,10 +1,11 @@
 
 <!--  Side Nav -->
 
-<div ng-controller="sideNavCtrl" flex layout ="row" layout-fill ng-cloak="" class="sidenavdemoBasicUsage posAbs" ng-app="MyApp">
+<div ng-controller="sideNavCtrl as sideBar" flex layout ="row" layout-fill ng-cloak="" class="sidenavdemoBasicUsage posAbs" ng-app="MyApp">
   <section>
 
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+<!-- ng-show="sideBar.isLoggedIn()" -->
+    <md-sidenav  class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
 
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Future Stories test</h1>
