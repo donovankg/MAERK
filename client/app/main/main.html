@@ -3,11 +3,19 @@
 
     <md-sidenav class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="leftSideNav" md-is-locked-open="$mdMedia('gt-md')">
       <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Future Stories 2</h1>
+        <h1 class="md-toolbar-tools">Future Story</h1>
       </md-toolbar>
       <md-content layout-padding>
         <ul>
-          <li><span class="icon-bar"><md-button>mock 1</md-button></span></li>
+          <li><span class="icon-bar"><md-button>Reports</md-button></span>
+            
+            <ul>
+              <li><span class="icon-bar"><md-button>Skills</md-button></span></li>
+              <li><span class="icon-bar"><md-button>Client</md-button></span></li>
+              <li><span class="icon-bar"><md-button>Recruiters</md-button></span></li>
+
+            </ul>
+          </li>
           <li><span class="icon-bar"><md-button>mock 2</md-button></span></li>
           <li><span class="icon-bar"><md-button>mock 3</md-button></span></li>
         </ul>
@@ -18,5 +26,9 @@
     </md-sidenav>
 <!-- </div> -->
 <!--- end SideNav-->
+
+
+
+menu.service.js holds the items in the menu
 
 <ui-view></ui-view>
