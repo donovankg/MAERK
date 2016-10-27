@@ -5,30 +5,32 @@
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Future Story</h1>
       </md-toolbar>
-      <md-content layout-padding>
-        <ul>
-          <li><span class="icon-bar"><md-button>Reports</md-button></span>
-            
-            <ul>
-              <li><span class="icon-bar"><md-button>Skills</md-button></span></li>
-              <li><span class="icon-bar"><md-button>Client</md-button></span></li>
-              <li><span class="icon-bar"><md-button>Recruiters</md-button></span></li>
-
-            </ul>
-          </li>
-          <li><span class="icon-bar"><md-button>mock 2</md-button></span></li>
-          <li><span class="icon-bar"><md-button>mock 3</md-button></span></li>
-        </ul>
+      <md-list-item>
+         <p>Reports</p>
+         <md-menu class="md-secondary">
+           <md-button class="md-icon-button">
+             <md-icon md-svg-icon="communication:message"></md-icon>
+           </md-button>
+           <md-menu-content>
+             <md-menu-item>
+               <md-button>Skills</md-button>
+             </md-menu-item>
+             <md-menu-item>
+               <md-button>Clients</md-button>
+             </md-menu-item>
+             <md-menu-item>
+               <md-button>Recruiters</md-button>
+             </md-menu-item>
+           </md-menu-content>
+         </md-menu>
+       </md-list-item>
         <md-button ng-click="vm.close()" class="md-primary" hide-gt-md="">
           close Menu
         </md-button>
-      </md-content>
+      </md-menu>
     </md-sidenav>
 <!-- </div> -->
 <!--- end SideNav-->
 
-
-
-menu.service.js holds the items in the menu
 
 <ui-view></ui-view>
