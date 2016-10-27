@@ -4,9 +4,14 @@
 
   class MainController {
 
-    constructor($http) {
+    constructor($http,$mdSidenav) {
       this.$http = $http;
       this.awesomeThings = [];
+      this.$mdSidenav=$mdSidenav;
+    }
+
+    close(){
+      this.$mdSidenav("leftSideNav").close();
     }
 
     $onInit() {
@@ -33,6 +38,7 @@
   angular.module('maerkApp')
     .component('main', {
       templateUrl: 'app/main/main.html',
-      controller: MainController
+      controller: MainController,
+      controllerAs:"vm"
     });
 })();

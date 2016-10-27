@@ -3,10 +3,10 @@
 <!--toolbar added -->
 
     <md-toolbar>
-      <div class="md-toolbar-tools" ng-controller="sideNavCtrl">
+      <div class="md-toolbar-tools">
 
           <i class="fa fa-bars pinkNav" aria-hidden="true"
-             ng-click="toggleLeft()"></i>
+             ng-click="nav.toggleLeft()"></i>
 
               <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p>
         <span flex></span>
