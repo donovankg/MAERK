@@ -13,8 +13,9 @@ angular.module('maerkApp')
         referrer: 'login',
         template: '',
         controller: function($state, Auth) {
-          var referrer = $state.params.referrer || $state.current.referrer || 'main';
+          var referrer =  'login';
           Auth.logout();
+          console.log(referrer)
           $state.go(referrer);
         }
       })
@@ -31,13 +32,6 @@ angular.module('maerkApp')
         controllerAs: 'vm',
         authenticate: true
       })
-      .state('main2',{
-        url: '/main',
-        templateUrl: 'app/account/main2/main2.html',
-        controller: 'Main2Controller',
-        controllerAs: 'vm',
-        authenticate: true
-      });
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {

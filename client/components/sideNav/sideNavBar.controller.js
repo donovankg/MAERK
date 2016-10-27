@@ -14,7 +14,7 @@ class sideNavCtrl {
 
 
 angular.module('maerkApp')
-.controller('sideNavCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+.controller('leftSideNavCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
     $scope.test = "You"
 

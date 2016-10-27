@@ -1,31 +1,40 @@
 <div class="">
   <div class="container">
-<!--toolbar added -->
+    <!--toolbar added -->
 
     <md-toolbar>
-      <div class="md-toolbar-tools" ng-controller="sideNavCtrl">
+      <div class="md-toolbar-tools">
 
-          <i class="fa fa-bars pinkNav" aria-hidden="true"
-             ng-click="toggleLeft()"></i>
+        <i class="fa fa-bars pinkNav" aria-hidden="true" ng-click="nav.toggleLeft()"></i>
 
-              <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p>
+        <!-- <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p> -->
         <span flex></span>
-      <a href="/main" class="navbar-brand">
-        Maerk<h2>{{test}}</h2>
-      </a>
+        <a href="/main">
+          <img src="assets/images/ksquare-logo.png" alt="Ksquare Logo" />
+        </a>
         <span flex></span>
-        <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController">
-          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-          <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li>
-          <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span>Settings</span></a></li>
-          <li ng-show="nav.isLoggedIn()" class="navbar-text"><a ui-sref="logout">Logout</a></li>
-        </ul>
+        <!-- <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController"> -->
+          <!-- <div ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></div> -->
+          <!-- <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li> -->
+          <md-button ng-show="nav.isLoggedIn()">
+            <div>
+              <!-- Settings -->
+              <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+          </md-button>
+          <div ng-show="nav.isLoggedIn()">
+            <md-button ui-sref="logout">
+              <!-- Log-out -->
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+            </md-button>
+          </div>
+
       </div>
 
     </md-toolbar>
 
-<!-- toolbar closed -->
-<!-- side Nav-->
+    <!-- toolbar closed -->
+    <!-- side Nav-->
 
 
 

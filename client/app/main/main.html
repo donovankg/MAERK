@@ -1,0 +1,22 @@
+<!--  Side Nav -->
+<!-- <div ng-controller="sideNavCtrl as sideBar"  ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp" flex layout="row" layout-fill> -->
+
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="leftSideNav" md-is-locked-open="$mdMedia('gt-md')">
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Future Stories 2</h1>
+      </md-toolbar>
+      <md-content layout-padding>
+        <ul>
+          <li><span class="icon-bar"><md-button>mock 1</md-button></span></li>
+          <li><span class="icon-bar"><md-button>mock 2</md-button></span></li>
+          <li><span class="icon-bar"><md-button>mock 3</md-button></span></li>
+        </ul>
+        <md-button ng-click="vm.close()" class="md-primary" hide-gt-md="">
+          close Menu
+        </md-button>
+      </md-content>
+    </md-sidenav>
+<!-- </div> -->
+<!--- end SideNav-->
+
+<ui-view></ui-view>
