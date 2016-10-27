@@ -3,14 +3,14 @@
 angular.module('maerkApp')
   .config(function($stateProvider) {
     $stateProvider.state('login', {
-        url: '/login',
+        url: '/',
         templateUrl: 'app/account/login/login.html',
         controller: 'LoginController',
         controllerAs: 'vm'
       })
       .state('logout', {
         url: '/logout?referrer',
-        referrer: 'main',
+        referrer: 'login',
         template: '',
         controller: function($state, Auth) {
           var referrer = $state.params.referrer || $state.current.referrer || 'main';
@@ -28,6 +28,13 @@ angular.module('maerkApp')
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
+      .state('main2',{
+        url: '/main',
+        templateUrl: 'app/account/main2/main2.html',
+        controller: 'Main2Controller',
         controllerAs: 'vm',
         authenticate: true
       });

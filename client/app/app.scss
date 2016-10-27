@@ -9,7 +9,10 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   width: 90%;
 
 }
-
+ul{
+  font-size: .75em;
+  list-style: none;
+}
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
@@ -17,19 +20,29 @@ $fa-font-path: "../bower_components/font-awesome/fonts";
   padding: 0.2em 0;
 }
 
+.navMargOff{
+  margin: 0;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-
   .container {
-    max-width: 730px;
+//    max-width: 730px;
   }
   .login{
     width: 50%;
   }
 }
-@media screen and (min-width: 1200px){
+
+@media screen and (min-width: 1280px){
+  .posAbs{
+     position: absolute;
+  }
+
   .login{
     width: 30%;
+  }
+  .pinkNav{
+  	display: none;
   }
 }
 

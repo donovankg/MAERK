@@ -1,3 +1,5 @@
+
+//----------------------------------
 'use strict';
 
 class NavbarController {
@@ -19,4 +21,4 @@ class NavbarController {
 }
 
 angular.module('maerkApp')
-  .controller('NavbarController', NavbarController);
+  .controller('NavbarController', NavbarController)

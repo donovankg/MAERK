@@ -1,29 +1,33 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
+<div class="">
   <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">maerk</a>
-    </div>
-    <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in nav.menu" ui-sref-active="active">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
-        </li>
-        <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
-      </ul>
+<!--toolbar added -->
 
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
-        <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
-      </ul>
-    </div>
+    <md-toolbar>
+      <div class="md-toolbar-tools" ng-controller="sideNavCtrl">
+
+          <i class="fa fa-bars pinkNav" aria-hidden="true"
+             ng-click="toggleLeft()"></i>
+
+              <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p>
+        <span flex></span>
+      <a href="/main" class="navbar-brand">
+        Maerk<h2>{{test}}</h2>
+      </a>
+        <span flex></span>
+        <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController">
+          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text"ui-sref-active="active"><a ui-sref="settings"><span>Settings</span></a></li>
+          <li ng-show="nav.isLoggedIn()" class="navbar-text"><a ui-sref="logout">Logout</a></li>
+        </ul>
+      </div>
+
+    </md-toolbar>
+
+<!-- toolbar closed -->
+<!-- side Nav-->
+
+
+
   </div>
 </div>
