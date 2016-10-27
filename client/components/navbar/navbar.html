@@ -9,17 +9,17 @@
 
         <!-- <p ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></p> -->
         <span flex></span>
-        <a href="/main" class="navbar-brand">
+        <a href="/main">
           <img src="assets/images/ksquare-logo.png" alt="Ksquare Logo" />
         </a>
         <span flex></span>
         <!-- <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController"> -->
           <div ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></div>
           <!-- <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li> -->
-          <div ng-show="nav.isLoggedIn()" class="navbar-text" ui-sref-active="active">
+          <div ng-show="nav.isLoggedIn()" ui-sref-active="active">
             <i class="fa fa-cogs" aria-hidden="true"></i>
           </div>
-          <div ng-show="nav.isLoggedIn()" class="navbar-text"><a ui-sref="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
+          <div ng-show="nav.isLoggedIn()" ><a ui-sref="logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></div>
 
       </div>
 
