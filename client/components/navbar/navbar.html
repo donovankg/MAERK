@@ -16,14 +16,14 @@
         <!-- <ul class="nav navbar-nav navbar-right" ng-controller="NavbarController"> -->
           <!-- <div ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></div> -->
           <!-- <li ng-show="nav.isLoggedIn()" class="navbar-text">Hello {{ nav.getCurrentUser().name }} </li> -->
-          <md-button ng-show="nav.isLoggedIn()">
+          <md-button ng-show="nav.isLoggedIn()" class ="md-icon-button">
             <div>
               <!-- Settings -->
               <i class="fa fa-cogs" aria-hidden="true"></i>
             </div>
           </md-button>
           <div ng-show="nav.isLoggedIn()">
-            <md-button ui-sref="logout">
+            <md-button ui-sref="logout"  class ="md-icon-button">
               <!-- Log-out -->
               <i class="fa fa-sign-out" aria-hidden="true"></i>
             </md-button>
