@@ -4,15 +4,9 @@ angular.module('maerkApp', ['maerkApp.auth', 'maerkApp.admin', 'maerkApp.constan
     'ngResource', 'ngSanitize', 'ui.router', 'validation.match','ngMaterial'
   ])
   .config(function($urlRouterProvider, $locationProvider, $stateProvider) {
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/main');
 
     $locationProvider.html5Mode(true);
 
-    // 
-    // $stateProvider.state('main2',{
-    //   url: '/main',
-    //   templateUrl: 'app/main/main.html',
-    //   controllerAs: 'vm',
-    //   authenticate: true
-    // });
+
   });

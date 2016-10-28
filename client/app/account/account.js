@@ -32,6 +32,11 @@ angular.module('maerkApp')
         controllerAs: 'vm',
         authenticate: true
       })
+      .state('main', {
+        url: '/main',
+        template: '<main class ="flex layout-row"></main>',
+        authenticate: true
+      })
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
