@@ -1,0 +1,62 @@
+<mdt-table table-card="{title: 'employees'}"   mdt-row="{
+                      data: employees,
+                      'column-keys': [
+                          'first_name',
+                          'last_name',
+                          'client',
+                          'skill',
+                          'recruiter',
+                          'salary'
+                            ]
+                      }">
+  <mdt-header-row>
+        <mdt-column align-rule="right">first name</mdt-column>
+        <mdt-column align-rule="right">last name</mdt-column>
+        <mdt-column align-rule="right">client</mdt-column>
+        <mdt-column align-rule="left">skill</mdt-column>
+        <mdt-column align-rule="right">recruiter</mdt-column>
+        <mdt-column align-rule="right">salary</mdt-column>
+        <!-- salary is set rather than revenue because it hasn't been added yet -->
+    </mdt-header-row>
+    </mdt-table>
+
+
+<!-- <md-table-container class="container">
+  <table>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Client
+      </th>
+      <th>
+        Skill
+      </th>
+      <th>
+        Recruiter
+      </th>
+      <th>
+        Revenue
+      </th>
+    </tr>
+    <tr ng-repeat="oneRow in employees">
+      <td>
+        {{oneRow.first_name}}
+      </td>
+
+      <td>
+        {{oneRow.client}}
+      </td>
+      <td>
+        {{oneRow.skill}}
+      </td>
+      <td>
+        {{oneRow.recruiter}}
+      </td>
+      <td>
+        1
+      </td>
+    </tr>
+  </table>
+</div> -->

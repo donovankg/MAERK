@@ -6,5 +6,12 @@ angular.module('maerkApp')
       url: '/main',
       template: '<main class ="flex layout-row"></main>',
       authenticate: true
+    })
+    .state('main.employee', {
+      url: '/employee',
+      templateUrl: 'app/employee/employee.html',
+      controller:'EmployeeController',
+      controllerAs:'empCtrl',
+      authenticate: true
     });
   });

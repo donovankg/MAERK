@@ -13,7 +13,7 @@ angular.module('maerkApp')
         referrer: 'login',
         template: '',
         controller: function($state, Auth) {
-          var referrer =  'login';
+          var referrer = 'login';
           Auth.logout();
           console.log(referrer)
           $state.go(referrer);
@@ -32,6 +32,7 @@ angular.module('maerkApp')
         controllerAs: 'vm',
         authenticate: true
       })
+
   })
   .run(function($rootScope) {
     $rootScope.$on('$stateChangeStart', function(event, next, nextParams, current) {
