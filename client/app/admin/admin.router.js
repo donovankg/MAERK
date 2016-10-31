@@ -7,6 +7,6 @@ angular.module('maerkApp.admin')
       templateUrl: 'app/admin/admin.html',
       controller: 'AdminController',
       controllerAs: 'admin',
-      authenticate: true
+      authenticate: 'admin'
     });
   });

@@ -1,5 +1,5 @@
 <mdt-table table-card="{title: 'employees'}"   mdt-row="{
-                      data: employees,
+                      data: emp.employees,
                       'column-keys': [
                           'first_name',
                           'last_name',
@@ -10,12 +10,12 @@
                             ]
                       }">
   <mdt-header-row>
-        <mdt-column align-rule="right">first name</mdt-column>
-        <mdt-column align-rule="right">last name</mdt-column>
-        <mdt-column align-rule="right">client</mdt-column>
-        <mdt-column align-rule="left">skill</mdt-column>
-        <mdt-column align-rule="right">recruiter</mdt-column>
-        <mdt-column align-rule="right">salary</mdt-column>
+        <mdt-column align-rule="right">First Name</mdt-column>
+        <mdt-column align-rule="right">Last Name</mdt-column>
+        <mdt-column align-rule="right">Client</mdt-column>
+        <mdt-column align-rule="left">Skill</mdt-column>
+        <mdt-column align-rule="right">Recruiter</mdt-column>
+        <mdt-column align-rule="right">Salary</mdt-column>
         <!-- salary is set rather than revenue because it hasn't been added yet -->
     </mdt-header-row>
     </mdt-table>
