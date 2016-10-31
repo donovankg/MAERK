@@ -2,7 +2,7 @@
 (function(Employee) {
 
   angular.module('maerkApp.employee')
-    .controller('EmployeeController', function($scope) {
+    .controller('EmployeeController', function() {
       var errors = {};
       var submitted = false;
 

@@ -11,7 +11,7 @@ angular.module('maerkApp')
       url: '/employee',
       templateUrl: 'app/employee/employee.html',
       controller:'EmployeeController',
-      controllerAs:'empCtrl',
+      controllerAs:'emp',
       authenticate: true
     });
   });
