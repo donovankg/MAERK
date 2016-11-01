@@ -3,37 +3,20 @@
 (function() {
 
   function EmpResource($resource) {
-    return $resource('/api/employee/:id/:controller', {
+    return $resource('/api/employee/:id', {
       id: '@_id'
-    },{
-      getOne:{
+    }, {
+      getOne: {
         method: 'get',
         params: {
-          id: 'me'
+          id: '@_id'
         }
       },
-      getAll:{
-        method: 'get',
-        params: {
-        }
+      create: {
+        method: 'post'
       },
-      create:{
-        method: 'get',
-        params: {
-          id: 'me'
-        }
-      },
-      update:{
-        method: 'put',
-        params: {
-          id: 'me'
-        }
-      },
-      delete:{
-        method: 'delete',
-        params: {
-          id: 'me'
-        }
+      update: {
+        method: 'put'
       }
     });
   }
