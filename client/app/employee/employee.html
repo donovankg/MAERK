@@ -1,12 +1,14 @@
-<md-input-container>
-  <label>Search Employee Table</label>
-  <input type="text" name="name" ng-model="filterName">
-</md-input-container>
-<div ng-hide="true">
-  {{(empfiltered = (emp.employees | filter: filterName))}}
-</div>
+<div layout-margin>
 
-<mdt-table table-card="{title: 'employees'}" selectable-rows="true" mdt-row="{
+
+  <md-input-container>
+    <label>Search Employee Table</label>
+    <input type="text" name="name" ng-model="filterName">
+  </md-input-container>
+  <div ng-hide="true">
+    {{(empfiltered = (emp.employees | filter: filterName))}}
+  </div>
+  <mdt-table table-card="{title: 'employees'}" selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,50]}" mdt-row="{
                       data: empfiltered,
                       'column-keys': [
                           'first_name',
@@ -17,13 +19,14 @@
                           'salary'
                             ]
                       }">
-  <mdt-header-row>
-    <mdt-column column-sort="true" align-rule="right">First Name</mdt-column>
-    <mdt-column column-sort="true" align-rule="right">Last Name</mdt-column>
-    <mdt-column column-sort="true" align-rule="right">Client</mdt-column>
-    <mdt-column column-sort="true" align-rule="left">Skill</mdt-column>
-    <mdt-column column-sort="true" align-rule="right">Recruiter</mdt-column>
-    <mdt-column column-sort="true" align-rule="right">Salary</mdt-column>
-    <!-- salary is set rather than revenue because it hasn't been added yet -->
-  </mdt-header-row>
-</mdt-table>
+    <mdt-header-row>
+      <mdt-column column-sort="true" align-rule="right">First Name</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Last Name</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Client</mdt-column>
+      <mdt-column column-sort="true" align-rule="left">Skill</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Recruiter</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Salary</mdt-column>
+      <!-- salary is set rather than revenue because it hasn't been added yet -->
+    </mdt-header-row>
+  </mdt-table>
+</div>
