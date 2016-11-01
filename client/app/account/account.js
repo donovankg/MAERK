@@ -25,7 +25,7 @@ angular.module('maerkApp')
         controller: 'SignupController',
         controllerAs: 'vm'
       })
-      .state('settings', {
+      .state('main.settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
