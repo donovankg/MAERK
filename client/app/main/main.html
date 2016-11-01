@@ -1,6 +1,5 @@
 <!--  Side Nav -->
 <!-- <div ng-controller="sideNavCtrl as sideBar"  ng-cloak="" class="sidenavdemoBasicUsage" ng-app="MyApp" flex layout="row" layout-fill> -->
-
     <md-sidenav class="md-sidenav-left md-whiteframe-z2 navMargOff" md-component-id="leftSideNav" md-is-locked-open="$mdMedia('gt-md')">
       <md-toolbar class="md-theme-indigo">
         <h1 class="md-toolbar-tools">Future Story</h1>
@@ -24,6 +23,7 @@
            </md-menu-content>
          </md-menu>
        </md-list-item>
+       <md-button ui-sref=".employee">employees</md-button>
         <md-button ng-click="vm.close()" class="md-primary" hide-gt-md="">
           close Menu
         </md-button>

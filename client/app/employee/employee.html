@@ -1,0 +1,21 @@
+<mdt-table table-card="{title: 'employees'}"   mdt-row="{
+                      data: emp.employees,
+                      'column-keys': [
+                          'first_name',
+                          'last_name',
+                          'client',
+                          'skill',
+                          'recruiter',
+                          'salary'
+                            ]
+                      }">
+  <mdt-header-row>
+        <mdt-column align-rule="right">First Name</mdt-column>
+        <mdt-column align-rule="right">Last Name</mdt-column>
+        <mdt-column align-rule="right">Client</mdt-column>
+        <mdt-column align-rule="left">Skill</mdt-column>
+        <mdt-column align-rule="right">Recruiter</mdt-column>
+        <mdt-column align-rule="right">Salary</mdt-column>
+        <!-- salary is set rather than revenue because it hasn't been added yet -->
+    </mdt-header-row>
+    </mdt-table>
