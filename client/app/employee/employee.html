@@ -1,5 +1,15 @@
-<mdt-table table-card="{title: 'employees'}"   mdt-row="{
-                      data: emp.employees,
+<div layout-margin>
+
+
+  <md-input-container>
+    <label>Search Employee Table</label>
+    <input type="text" name="name" ng-model="filterName">
+  </md-input-container>
+  <div ng-hide="true">
+    {{(empfiltered = (emp.employees | filter: filterName))}}
+  </div>
+  <mdt-table table-card="{title: 'employees'}" selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" mdt-row="{
+                      data: empfiltered,
                       'column-keys': [
                           'first_name',
                           'last_name',
@@ -9,13 +19,14 @@
                           'salary'
                             ]
                       }">
-  <mdt-header-row>
-        <mdt-column align-rule="right">First Name</mdt-column>
-        <mdt-column align-rule="right">Last Name</mdt-column>
-        <mdt-column align-rule="right">Client</mdt-column>
-        <mdt-column align-rule="left">Skill</mdt-column>
-        <mdt-column align-rule="right">Recruiter</mdt-column>
-        <mdt-column align-rule="right">Salary</mdt-column>
-        <!-- salary is set rather than revenue because it hasn't been added yet -->
+    <mdt-header-row>
+      <mdt-column column-sort="true" align-rule="right">First Name</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Last Name</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Client</mdt-column>
+      <mdt-column column-sort="true" align-rule="left">Skill</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Recruiter</mdt-column>
+      <mdt-column column-sort="true" align-rule="right">Salary</mdt-column>
+      <!-- salary is set rather than revenue because it hasn't been added yet -->
     </mdt-header-row>
-    </mdt-table>
+  </mdt-table>
+</div>
