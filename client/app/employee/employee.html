@@ -8,7 +8,7 @@
   <div ng-hide="true">
     {{(empfiltered = (emp.employees | filter: filterName))}}
   </div>
-  <mdt-table table-card="{title: 'employees'}" selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,50]}" mdt-row="{
+  <mdt-table table-card="{title: 'employees'}" selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" mdt-row="{
                       data: empfiltered,
                       'column-keys': [
                           'first_name',
