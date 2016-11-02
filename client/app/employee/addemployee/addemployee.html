@@ -1,18 +1,100 @@
-<!--
+<md-dialog aria-label="test" flex="90">
+  <form ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar">
+        <h2></h2>
+        <span flex>Add Employee</span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <div layout="row" flex layout-align="center start">
+      <div layout="column" flex>
+        <md-input-container class="md-block" flex>
+          <label for="">first name</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">last name</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">client</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">skill</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">recruiter</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">Placement Type</label>
+          <md-select ng-model="newEmployee.placeType" required>
+            <md-option ng-repeat="workType in placeType" value="{{workType.types}}">
+              {{workType.types}}
+            </md-option>
+          </md-select>
+        </md-input-container>
 
-required fields
+        <md-input-container class="md-block" flex>
+          <label for="">salary</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">Insurance</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
 
-    first _name
-    last _name
-    client (clients that he work for)
-    skill (skill or area that he is working on)
-    recruiter (name of the recruiter)
-    placement_type (fulltime, project, part time)
-    salary (Amount pay per year)
-    Insurance (Amount that the company pay for insurance for him)
-    relocation (Amount that the company pay for relocate him)
-    immigration (Amount that the company reimburse for immigration expenses )
-    pay_vacation_cost (Amount that the company expend for employee's vacation)
-    ksquare_hourly_cost (Amount ksquare pay hourly to him)
-    target_bill_rate ()
-    client_bill_pay (Amount client pay to ksquare for that employee) -->
+      </div>
+      <div layout="column" flex>
+
+        <md-input-container class="md-block" flex>
+          <label for="">relocation</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">immigration</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">first name</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">pay vacation cost</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">ksquare hourly cost</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">target bill rate</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-input-container class="md-block" flex>
+          <label for="">client bill pay</label>
+          <input type="text" name="name" value="" required>
+        </md-input-container>
+        <md-dialog-content>
+          <div class="md-dialog-content">
+          </div>
+        </md-dialog-content>
+        <md-button class="md-primary md-raised" ng-click="submit">
+          Add Employee
+        </md-button>
+        <md-button class="md-primary md-raised" ng-click="cancel">
+          Cancel
+        </md-button>
+      </div>
+
+    </div>
+    <span flex></span>
+
+    </md-dialog-actions>
+  </form>
+</md-dialog>
