@@ -19,7 +19,7 @@
         </md-input-container>
         <md-chips ng-model="aec.client" placeholder="Enter Clients" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter Clients" required></md-chips>
         <md-chips ng-model="aec.skill" placeholder="Enter skills" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter skills" required></md-chips>
-      <md-input-container class="md-block" flex>
+        <md-input-container class="md-block" flex>
           <label for="">recruiter</label>
           <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" required>
         </md-input-container>
@@ -74,12 +74,14 @@
           <div class="md-dialog-content">
           </div>
         </md-dialog-content>
-        <md-button class="md-primary md-raised" type="submit">
-          Add Employee
-        </md-button>
-        <md-button class="md-primary md-raised" ng-click="cancel">
-          Cancel
-        </md-button>
+        <md-dialog-actions>
+          <md-button name ="ok" class="md-primary md-raised" type="submit">
+            Add Employee
+          </md-button>
+          <md-button class="md-primary md-raised" ng-click="aec.closeBox()">
+            Cancel
+          </md-button>
+        </md-dialog-actions>
       </div>
     </div>
     <span flex></span>

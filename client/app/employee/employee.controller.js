@@ -18,13 +18,19 @@
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose:true,
+        escapeToClose: true,
+        ok: 'Close',
         fullscreen: $scope.customFullscreen
       })
       .then(function(answer) {
         $scope.status = 'You said the information was "' + answer + '".';
       }, function() {
         $scope.status = 'You cancelled the dialog.';
+        console.log($scope.status);
       });
+
+
+
     };
 
 
