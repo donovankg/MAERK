@@ -1,4 +1,4 @@
-function addEmplCtrl(Employee) {
+function addEmplCtrl(Employee, $mdDialog) {
   this.newEmp = {};
   this.client = [];
   this.skill = [];
@@ -7,13 +7,12 @@ function addEmplCtrl(Employee) {
       types: workType
     };
   });
-  this.addEmp = function(newEmp) {
+    this.addEmp = function(newEmp) {
     if (this.newEmp.activate == 'true') {
       this.newEmp.activate = true;
     } else {
       this.newEmp.activate = false;
     }
-    console.log('placetype -----> ', typeof(this.newEmp.placement_type));
     this.newEmp.client = this.client;
     this.newEmp.skill = this.skill;
     this.newEmp.client_bill_pay = parseInt(this.newEmp.client_bill_pay);
@@ -26,15 +25,21 @@ function addEmplCtrl(Employee) {
     this.newEmp.target_bill_rate = parseInt(this.newEmp.target_bill_rate);
 
 
-    // console.log(this.newEmp);
+    console.log(this.newEmp);
+
     Employee.create(this.newEmp);
 
   }
 
+  this.submitted = function(){
+    $mdDialog.hide();
+    console.log('form submitted');
+    //validation to come in another history
+  }
 
-  function closeBox(){
-    console.log('test');
-    $mdDialog.hide(addBox, "finished");
+  this.cancel = function(){
+    $mdDialog.hide();
+    console.log('cancelled');
 
   }
 

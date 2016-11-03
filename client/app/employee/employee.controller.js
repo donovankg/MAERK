@@ -7,6 +7,9 @@
       var errors = {};
       var submitted = false;
 
+      var runThisFn = function() {
+        console.log("the function ran");
+      }
 
       this.employees = Employee.query();
   // $scope.placeType = ['fulltime', "project", "part time"];
@@ -24,7 +27,8 @@
       })
       .then(function(answer) {
         $scope.status = 'You said the information was "' + answer + '".';
-      }, function() {
+      },
+      function() {
         $scope.status = 'You cancelled the dialog.';
         console.log($scope.status);
       });
