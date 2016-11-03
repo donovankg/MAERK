@@ -2,9 +2,6 @@
 
 (function() {
 
-addEmp(form){
-  console.log('worked');
-}
 
   function EmpResource($resource) {
     return $resource('/api/employee/:id', {

@@ -1,11 +1,9 @@
 <md-dialog aria-label="test" flex="90">
-  <form ng-cloak class="form" name="form" ng-submit="emp.addEmp(form)">
+  <form class="form" name="addNew" ng-submit="aec.addEmp(addNew)" novalidate>
     <md-toolbar>
       <div class="md-toolbar">
         <h2></h2>
         <span flex>Add Employee</span>
-        <md-button class="md-icon-button" ng-click="cancel()">
-          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
         </md-button>
       </div>
     </md-toolbar>
@@ -13,28 +11,22 @@
       <div layout="column" flex>
         <md-input-container class="md-block" flex>
           <label for="">first name</label>
-          <input type="text" name="first_name" value="" required>
+          <input type="text" name="first_name" ng-model="aec.newEmp.first_name" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">last name</label>
-          <input type="text" name="last_name" value="" required>
+          <input type="text" name="last_name" ng-model="aec.newEmp.last_name" required>
         </md-input-container>
-        <md-input-container class="md-block" flex>
-          <label for="">client</label>
-          <input type="text" name="client" value="" required>
-        </md-input-container>
-        <md-input-container class="md-block" flex>
-          <label for="">skill</label>
-          <input type="text" name="skill" value="" required>
-        </md-input-container>
-        <md-input-container class="md-block" flex>
+        <md-chips ng-model="aec.client" placeholder="Enter Clients" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter Clients" required></md-chips>
+        <md-chips ng-model="aec.skill" placeholder="Enter skills" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter skills" required></md-chips>
+      <md-input-container class="md-block" flex>
           <label for="">recruiter</label>
-          <input type="text" name="recruiter" value="" required>
+          <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">Placement Type</label>
-          <md-select ng-model="newEmployee.placeType" required name ="placement_type">
-            <md-option ng-repeat="workType in placeType" value="{{workType.types}}">
+          <md-select ng-model="aec.newEmp.placement_type" required name="placement_type" ng-model="aec.newEmp.placement_type">
+            <md-option ng-repeat="workType in aec.placeType" value="{{workType.types}}">
               {{workType.types}}
             </md-option>
           </md-select>
@@ -42,61 +34,55 @@
 
         <md-input-container class="md-block" flex>
           <label for="">salary</label>
-          <input type="text" name="salary" value="" required>
+          <input type="text" name="salary" ng-model="aec.newEmp.salary" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">Insurance</label>
-          <input type="text" name="insurance" value="" required>
+          <input type="text" name="insurance" ng-model="aec.newEmp.insurance" required>
         </md-input-container>
-
       </div>
       <div layout="column" flex>
-
         <md-input-container class="md-block" flex>
           <label for="">relocation</label>
-          <input type="text" name="relocation" value="" required>
+          <input type="text" name="relocation" ng-model="aec.newEmp.relocation" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">immigration</label>
-          <input type="text" name="immigration" value="" required>
+          <input type="text" name="immigration" ng-model="aec.newEmp.immigration" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">pay vacation cost</label>
-          <input type="text" name="pay_vacation_cost" value="" required>
+          <input type="text" name="pay_vacation_cost" ng-model="aec.newEmp.pay_vacation_cost" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">ksquare hourly cost</label>
-          <input type="text" name="ksquare_hourly_cost" value="" required>
+          <input type="text" name="ksquare_hourly_cost" ng-model="aec.newEmp.ksquare_hourly_cost" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">target bill rate</label>
-          <input type="text" name="target_bill_rate" value="" required>
+          <input type="text" name="target_bill_rate" ng-model="aec.newEmp.target_bill_rate" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">client bill pay</label>
-          <input type="text" name="client_bill_pay" value="" required>
+          <input type="text" name="client_bill_pay" ng-model="aec.newEmp.client_bill_pay" required>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">activate</label>
-          <input type="text" name="activate" value="" required>
+          <input type="text" name="activate" ng-model="aec.newEmp.activate" required>
         </md-input-container>
-
-
         <md-dialog-content>
           <div class="md-dialog-content">
           </div>
         </md-dialog-content>
-        <md-button class="md-primary md-raised" ng-click="submit" type="submit">
+        <md-button class="md-primary md-raised" type="submit">
           Add Employee
         </md-button>
         <md-button class="md-primary md-raised" ng-click="cancel">
           Cancel
         </md-button>
       </div>
-
     </div>
     <span flex></span>
-
     </md-dialog-actions>
   </form>
 </md-dialog>

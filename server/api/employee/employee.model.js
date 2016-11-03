@@ -12,11 +12,11 @@ var EmployeeSchema = new mongoose.Schema({
     required: true
   },
   client: {
-    type: Array,
+    type: [],
     required: true
   },
   skill: {
-    type: Array,
+    type: [],
     required: true
   },
   recruiter: {
@@ -65,4 +65,4 @@ var EmployeeSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.model('employee', EmployeeSchema);
+export default mongoose.model('Employee', EmployeeSchema);

@@ -7,11 +7,13 @@
       var errors = {};
       var submitted = false;
 
+
       this.employees = Employee.query();
   // $scope.placeType = ['fulltime', "project", "part time"];
   $scope.addEmp = function(ev) {
       $mdDialog.show({
         controller: addEmplCtrl,
+        controllerAs: 'aec',
         templateUrl: '/app/employee/addemployee/addemployee.html',
         parent: angular.element(document.body),
         targetEvent: ev,
