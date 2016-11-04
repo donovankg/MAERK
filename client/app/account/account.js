@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('maerkApp')
+  .constant("EmpService", "http://localhost:9000/api/employee")
   .config(function($stateProvider) {
     $stateProvider.state('login', {
         url: '/',

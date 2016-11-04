@@ -1,4 +1,5 @@
-function addEmplCtrl(Employee, $mdDialog) {
+"use strict";
+function addEmplCtrl( $mdDialog, Empfactory) {
   this.newEmp = {};
   this.client = [];
   this.skill = [];
@@ -7,8 +8,8 @@ function addEmplCtrl(Employee, $mdDialog) {
       types: workType
     };
   });
-    this.addEmp = function(newEmp) {
-    if (this.newEmp.activate == 'true') {
+    this.addEmp = function() {
+    if (this.newEmp.activate === 'true') {
       this.newEmp.activate = true;
     } else {
       this.newEmp.activate = false;
@@ -25,10 +26,9 @@ function addEmplCtrl(Employee, $mdDialog) {
     this.newEmp.target_bill_rate = parseInt(this.newEmp.target_bill_rate);
 
 
-    console.log(this.newEmp);
+    // console.log(this.newEmp);
 
-    Employee.create(this.newEmp);
-
+    Empfactory.createEmp(this.newEmp);
   }
 
   this.submitted = function(){
@@ -46,4 +46,5 @@ function addEmplCtrl(Employee, $mdDialog) {
 }
 
 
-angular.module("maerkApp'", addEmplCtrl);
+angular.module('maerkApp')
+.controller('addEmplCtrl', addEmplCtrl);
