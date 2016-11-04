@@ -8,12 +8,11 @@
       var submitted = false;
       var self = this;
 
-      $scope.createEmp = Empfactory.createEmp;
-      $scope.updateEmp = Empfactory.updateEmp;
+      self.createEmp = Empfactory.createEmp;
+      self.updateEmp = Empfactory.updateEmp;
 
-      this.employees = Empfactory.getAll();
-      addEmp = function(ev) {
-        console.log('clicked from ec');
+      self.employees = Empfactory.getAll();
+      this.addEmp = function(ev) {
         $mdDialog.show({
             controller: addEmplCtrl,
             controllerAs: 'aec',
@@ -22,16 +21,9 @@
             targetEvent: ev,
             clickOutsideToClose: true,
             escapeToClose: true,
-            ok: 'Close',
-            // fullscreen: $scope.customFullscreen
-          })
-          .then(function(answer) {
-              $scope.status = 'You said the information was "' + answer + '".';
-            },
-            function() {
-              $scope.status = 'You cancelled the dialog.';
-              // console.log($scope.status);
-            });
+            ok: 'Close'
+            // fullscreen: this.customFullscreen
+          });
       };
     })
 }());

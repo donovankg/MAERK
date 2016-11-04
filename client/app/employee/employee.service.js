@@ -2,6 +2,9 @@
 (function() {
   angular.module('maerkApp')
     .factory('Empfactory', function($resource, EmpService) {
+      var EmpResource = $resource('/api/employee/:id', {
+        id: '@_id'
+      }, {
         getOne: {
           method: 'get',
           params: {
@@ -15,10 +18,10 @@
           method: 'put'
         }
       });
-
-      var EmpResource = $resource(EmpService + ":id", {
-        id: "@_id"
-      });
+// resourceMethods
+      // var EmpResource = $resource(EmpService + ":id", {
+      //   id: "@_id"
+      // });
 
 
       var emps = EmpResource.query();
@@ -41,7 +44,7 @@
         createEmp: createEmp,
         updateEmp: updateEmp,
         getAll: getAll,
-        resourceMethods: resourceMethods
+        EmpResource: EmpResource
       }
     });
 })();

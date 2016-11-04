@@ -1,5 +1,6 @@
 "use strict";
-function addEmplCtrl( $mdDialog, Empfactory) {
+
+function addEmplCtrl($mdDialog, Empfactory) {
   this.newEmp = {};
   this.newEmp.client = [];
   this.newEmp.skill = [];
@@ -8,24 +9,22 @@ function addEmplCtrl( $mdDialog, Empfactory) {
       types: workType
     };
   });
-    this.pushEmp = function() {
+  this.pushEmp = function() {
     Empfactory.createEmp(this.newEmp);
   }
 
-  this.submitted = function(){
+  this.submitted = function() {
     $mdDialog.hide();
     console.log('form submitted');
     //validation to come in another history
   }
 
-  this.cancel = function(){
+  this.cancel = function() {
     $mdDialog.hide();
     console.log('cancelled');
-
   }
-
 }
 
 
 angular.module('maerkApp')
-.controller('addEmplCtrl', addEmplCtrl);
+  .controller('addEmplCtrl', addEmplCtrl);
