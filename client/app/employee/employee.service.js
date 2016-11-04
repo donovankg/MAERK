@@ -2,9 +2,6 @@
 (function() {
   angular.module('maerkApp')
     .factory('Empfactory', function($resource, EmpService) {
-      var resourceMethods = $resource('/api/employee/:id', {
-        id: '@_id'
-      }, {
         getOne: {
           method: 'get',
           params: {
