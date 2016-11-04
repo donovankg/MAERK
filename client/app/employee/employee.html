@@ -1,32 +1,48 @@
 <div layout-margin>
 
 
-  <md-input-container>
-    <label>Search Employee Table</label>
-    <input type="text" name="name" ng-model="filterName">
+
 
 <!-- Menu -->
-    <md-button ng-click="emp.addEmp($event)" class="md-primary md-raised">
-      <ng-md-icon icon="note_add" size="24">add</ng-md-icon>
-    </md-button>
-    <md-button ng-click="" class="md-primary md-raised">
-      <ng-md-icon icon="mode_edit" size="24">edit</ng-md-icon>
-    </md-button>
-    <md-button ng-click="" class="md-primary md-raised">
-      <ng-md-icon icon="delete" size="24">edit</ng-md-icon>
-    </md-button>
-    <md-button ng-click="" class="md-primary md-raised">
-      <ng-md-icon icon="thumbs_up_down" size="24">edit</ng-md-icon>
-    </md-button>
 
+
+<!-- http://codepen.io/iamisti/pen/bEBKRj?editors=1010#0 -->
 
 
   </md-input-container>
   <div ng-hide="true">
     {{(empfiltered = (emp.employees | filter: filterName))}}
   </div>
-  <mdt-table selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" mdt-row="{
+  <md-toolbar>
+<p>
+  Employees
+</p>
+    <md-input-container>
+      <label>Search Employee Table</label>
+      <input type="text" name="name" ng-model="filterName">
+      <md-button ng-hide="addBtn" ng-click="emp.addEmp($event)" class="md-icon-button">
+        <ng-md-icon icon="note_add" size="24">add</ng-md-icon>
+      </md-button>
+    <md-button ng-hide="editBtn" ng-click="" class="md-icon-button">
+      <ng-md-icon icon="mode_edit" size="24">edit</ng-md-icon>
+    </md-button>
+    <md-button ng-hide="deleteBtn" ng-click="" class="md-icon-button">
+      <ng-md-icon icon="delete" size="24">edit</ng-md-icon>
+    </md-button>
+    <md-button ng-hide="activeBtn" ng-click="" class="md-icon-button">
+      <ng-md-icon icon="thumbs_up_down" size="24">edit</ng-md-icon>
+    </md-button>
+
+  </md-toolbar>
+
+
+  <mdt-table selectable-rows="true"
+  paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}"
+  delete-row-callback="deleteRowCallBack(rows)"
+  selected-row-callback="emp.selectedRowCallback(rows)"
+  mdt-row="{
                       data: empfiltered,
+                      'table-row-id-key': '_id',
                       'column-keys': [
                           'first_name',
                           'last_name',

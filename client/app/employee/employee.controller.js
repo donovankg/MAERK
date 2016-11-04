@@ -3,7 +3,7 @@
 
 
   angular.module('maerkApp.employee')
-    .controller('EmployeeController', function(Empfactory, $scope, $mdDialog) {
+    .controller('EmployeeController', function(Empfactory, $mdToast, $mdDialog) {
       var errors = {};
       var submitted = false;
       var self = this;
@@ -25,5 +25,19 @@
             // fullscreen: this.customFullscreen
           });
       };
+    this.deleteRowCallBack = function(rows){
+      $mdToast.show(
+        $mdToast.simple()
+        .content('deleted row id(s): '+rows)
+        .hideDelay(3000)
+      );
+    }
+    this.showEdit;
+    this.selectedRowCallback = function(rows){
+      console.log(rows);
+
+      this.showEdit=true;
+
+    }
     })
 }());
