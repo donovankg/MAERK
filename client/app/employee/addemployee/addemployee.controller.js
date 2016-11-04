@@ -1,32 +1,28 @@
 "use strict";
 function addEmplCtrl( $mdDialog, Empfactory) {
   this.newEmp = {};
-  this.client = [];
-  this.skill = [];
+  this.newEmp.client = [];
+  this.newEmp.skill = [];
   this.placeType = ('fulltime project part-time').split(' ').map(function(workType) {
     return {
       types: workType
     };
   });
     this.addEmp = function() {
-    if (this.newEmp.activate === 'true') {
-      this.newEmp.activate = true;
-    } else {
-      this.newEmp.activate = false;
-    }
-    this.newEmp.client = this.client;
-    this.newEmp.skill = this.skill;
-    this.newEmp.client_bill_pay = parseInt(this.newEmp.client_bill_pay);
-    this.newEmp.immigration = parseInt(this.newEmp.immigration);
-    this.newEmp.insurance = parseInt(this.newEmp.insurance);
-    this.newEmp.ksquare_hourly_cost = parseInt(this.newEmp.ksquare_hourly_cost);
-    this.newEmp.pay_vacation_cost = parseInt(this.newEmp.pay_vacation_cost);
-    this.newEmp.relocation = parseInt(this.newEmp.relocation);
-    this.newEmp.salary = parseInt(this.newEmp.salary);
-    this.newEmp.target_bill_rate = parseInt(this.newEmp.target_bill_rate);
 
-
-    // console.log(this.newEmp);
+    // this.newEmp.client = this.client;
+    // this.newEmp.skill = this.skill;
+    // this.newEmp.client_bill_pay = this.newEmp.client_bill_pay;
+    // this.newEmp.immigration = this.newEmp.immigration;
+    // this.newEmp.insurance = this.newEmp.insurance;
+    // this.newEmp.ksquare_hourly_cost = this.newEmp.ksquare_hourly_cost;
+    // this.newEmp.pay_vacation_cost = this.newEmp.pay_vacation_cost;
+    // this.newEmp.relocation = this.newEmp.relocation;
+    // this.newEmp.salary = this.newEmp.salary;
+    // this.newEmp.target_bill_rate = this.newEmp.target_bill_rate;
+    //
+    //
+    // // console.log(this.newEmp);
 
     Empfactory.createEmp(this.newEmp);
   }

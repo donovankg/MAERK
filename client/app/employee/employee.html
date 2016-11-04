@@ -4,7 +4,23 @@
   <md-input-container>
     <label>Search Employee Table</label>
     <input type="text" name="name" ng-model="filterName">
-    <md-button ng-click="addEmp($event)" class="md-primary md-raised">add employee</md-button>
+
+<!-- Menu -->
+    <md-button ng-click="addEmp($event)" class="md-primary md-raised">
+      <ng-md-icon icon="note_add" size="24">add</ng-md-icon>
+    </md-button>
+    <md-button ng-click="" class="md-primary md-raised">
+      <ng-md-icon icon="mode_edit" size="24">edit</ng-md-icon>
+    </md-button>
+    <md-button ng-click="" class="md-primary md-raised">
+      <ng-md-icon icon="delete" size="24">edit</ng-md-icon>
+    </md-button>
+    <md-button ng-click="" class="md-primary md-raised">
+      <ng-md-icon icon="thumbs_up_down" size="24">edit</ng-md-icon>
+    </md-button>
+
+
+
   </md-input-container>
   <div ng-hide="true">
     {{(empfiltered = (emp.employees | filter: filterName))}}
