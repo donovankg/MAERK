@@ -55,7 +55,9 @@ function handleEntityNotFound(res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
-    res.status(statusCode).send(err);
+    console.log(err.message);
+    res.status(statusCode).send(err)
+
   };
 }
 
@@ -76,6 +78,7 @@ export function show(req, res) {
 //
 // Creates a new Employee in the DB
 export function create(req, res) {
+  console.log('in create line 79');
   return Employee.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));

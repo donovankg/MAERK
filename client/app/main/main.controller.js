@@ -11,7 +11,7 @@
     }
 
     close(){
-      this.$mdSidenav("leftSideNav").close();
+      this.$mdSidenav('leftSideNav').close();
     }
 
     $onInit() {
@@ -39,6 +39,6 @@
     .component('main', {
       templateUrl: 'app/main/main.html',
       controller: MainController,
-      controllerAs:"vm"
+      controllerAs:'vm'
     });
 })();

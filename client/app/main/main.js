@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('maerkApp')
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(function($stateProvider) {
 
 
     $stateProvider.state('main', {
