@@ -1,36 +1,28 @@
 <div layout-margin>
-
-
-
-
+  <label>Search Employee Table</label>
+  <input type="text" name="name" ng-model="filterName" flex="50">
 <!-- Menu -->
-
-
 <!-- http://codepen.io/iamisti/pen/bEBKRj?editors=1010#0 -->
-
-
   </md-input-container>
   <div ng-hide="true">
     {{(empfiltered = (emp.employees | filter: filterName))}}
   </div>
   <md-toolbar>
-<p>
-  Employees
-</p>
     <md-input-container>
-      <label>Search Employee Table</label>
-      <input type="text" name="name" ng-model="filterName">
-      <md-button ng-hide="emp.addBtn" ng-click="emp.addEmp($event)" class="md-icon-button">
-        <ng-md-icon icon="note_add" size="24">add</ng-md-icon>
+
+
+
+      <md-button ng-hide="emp.addBtn" ng-click="emp.addEmp($event)" class="sm-icon-button">
+        <ng-md-icon icon="note_add" size="24"></ng-md-icon>
       </md-button>
-    <md-button ng-show="emp.editBtn" ng-click="" class="md-icon-button">
-      <ng-md-icon icon="mode_edit" size="24">edit</ng-md-icon>
+    <md-button ng-show="emp.editBtn" ng-click="" class="sm-icon-button">
+      <ng-md-icon icon="mode_edit" size="24"></ng-md-icon>
     </md-button>
-    <md-button ng-show="emp.deleteBtn" ng-click="" class="md-icon-button">
-      <ng-md-icon icon="delete" size="24">edit</ng-md-icon>
+    <md-button ng-show="emp.deleteBtn" ng-click="" class="sm-icon-button">
+      <ng-md-icon icon="delete" size="24"></ng-md-icon>
     </md-button>
-    <md-button ng-show="emp.activeBtn" ng-click="" class="md-icon-button">
-      <ng-md-icon icon="thumbs_up_down" size="24">edit</ng-md-icon>
+    <md-button ng-show="emp.activeBtn" ng-click="" class="sm-icon-button">
+      <ng-md-icon icon="menu" size="24"></ng-md-icon>
     </md-button>
 
   </md-toolbar>
