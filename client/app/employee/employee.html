@@ -44,12 +44,17 @@
   </md-toolbar>
   <md-content flex layout="column">
 
-    <mdt-table selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" delete-row-callback="deleteRowCallBack(rows)" selected-row-callback="emp.selectedRowCallback(rows)" mdt-row="{
+    <mdt-table selectable-rows="true"
+    paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}"
+    delete-row-callback="deleteRowCallBack(rows)"
+    selected-row-callback="emp.selectedRowCallback(rows)"
+            mdt-row="{
                       data: empfiltered,
                       'table-row-id-key': '_id',
                       'column-keys': [
                           'first_name',
                           'last_name',
+                          'activate',
                           'client',
                           'skill',
                           'recruiter',
@@ -59,6 +64,7 @@
       <mdt-header-row>
         <mdt-column column-sort="true" align-rule="right">First Name</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Last Name</mdt-column>
+        <mdt-column column-sort="true" align-rule="right">active</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Client</mdt-column>
         <mdt-column column-sort="true" align-rule="left">Skill</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Recruiter</mdt-column>
