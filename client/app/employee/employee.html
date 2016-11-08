@@ -20,18 +20,41 @@
     <md-button ng-show="emp.deleteBtn" ng-click="" class="sm-icon-button">
       <ng-md-icon icon="delete" size="24"></ng-md-icon>
     </md-button>
-    <md-button ng-show="emp.activeBtn" ng-click="" class="sm-icon-button">
+    <md-list-item ng-show="emp.activeBtn">
       <ng-md-icon icon="menu" size="24"></ng-md-icon>
-    </md-button>
+      <md-menu class="md-secondary">
+        <md-button class="md-icon-button">
+          <md-icon md-svg-icon="communication:message"></md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="emp.statusEmp('1')">activate</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="emp.statusEmp('2')">deactivate</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </md-list-item>
+
+
+
+
+
   </md-toolbar>
   <md-content flex layout="column">
 
-    <mdt-table selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" delete-row-callback="deleteRowCallBack(rows)" selected-row-callback="emp.selectedRowCallback(rows)" mdt-row="{
+    <mdt-table selectable-rows="true"
+    paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}"
+    delete-row-callback="deleteRowCallBack(rows)"
+    selected-row-callback="emp.selectedRowCallback(rows)"
+            mdt-row="{
                       data: empfiltered,
                       'table-row-id-key': '_id',
                       'column-keys': [
                           'first_name',
                           'last_name',
+                          'activate',
                           'client',
                           'skill',
                           'recruiter',
@@ -41,6 +64,7 @@
       <mdt-header-row>
         <mdt-column column-sort="true" align-rule="right">First Name</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Last Name</mdt-column>
+        <mdt-column column-sort="true" align-rule="right">active</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Client</mdt-column>
         <mdt-column column-sort="true" align-rule="left">Skill</mdt-column>
         <mdt-column column-sort="true" align-rule="right">Recruiter</mdt-column>

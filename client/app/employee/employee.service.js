@@ -15,7 +15,10 @@
           method: 'post'
         },
         update: {
-          method: 'put'
+          method: 'put',
+          params: {
+            id: '@_id'
+          }
         }
       });
 // resourceMethods
@@ -34,7 +37,12 @@
       }
 
       var updateEmp = function(data) {
-        data.$save().then(function(newEmp) {});
+        console.log(data);
+        EmpResource.update({_id:data._id},data).$promise.then(function(editEmp) {
+
+        //   emps.push(editEmp);
+        //   console.log(editEmp);
+        });
       }
 
       var getAll = function() {
