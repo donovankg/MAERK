@@ -1,27 +1,41 @@
 "use strict";
 
-function addEmplCtrl($mdDialog, Empfactory) {
+function addEmplCtrl($mdDialog, Empfactory, editEmp) {
   this.newEmp = {};
-  this.newEmp.client = [];
-  this.newEmp.skill = [];
+  var newEmployee;
+  if (angular.equals(this.newEmp, editEmp)) {
+    console.log('true from new');
+    this.newEmp.client = [];
+    this.newEmp.skill = [];
+    newEmployee = true;
+  } else {
+    this.newEmp = editEmp;
+    newEmployee = false;
+  }
+  console.log(this.newEmp);
+
   this.placeType = ('fulltime project part-time').split(' ').map(function(workType) {
     return {
       types: workType
     };
   });
   this.pushEmp = function() {
-    Empfactory.createEmp(this.newEmp);
+    if (newEmployee === true) {
+      Empfactory.createEmp(this.newEmp);
+    } else {
+      Empfactory.updateEmp(this.newEmp);
+    }
   }
 
   this.submitted = function() {
     $mdDialog.hide();
-    console.log('form submitted');
+    // console.log('form submitted');
     //validation to come in another history
   }
 
   this.cancel = function() {
     $mdDialog.hide();
-    console.log('cancelled');
+    // console.log('cancelled');
   }
 }
 

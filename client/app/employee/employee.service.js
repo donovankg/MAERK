@@ -37,7 +37,7 @@
       }
 
       var updateEmp = function(data) {
-        console.log(data);
+        // console.log(data);
         EmpResource.update({_id:data._id},data).$promise.then(function(editEmp) {
 
         //   emps.push(editEmp);

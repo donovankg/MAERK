@@ -11,10 +11,10 @@
   </div>
 
   <md-toolbar class="md-toolbar-tools">
-    <md-button ng-hide="emp.addBtn" ng-click="emp.addEmp($event)" class="sm-icon-button">
+    <md-button ng-hide="emp.addBtn" ng-click="emp.addEmp('new')" class="sm-icon-button">
       <ng-md-icon icon="note_add" size="24"></ng-md-icon>
     </md-button>
-    <md-button ng-show="emp.editBtn" ng-click="" class="sm-icon-button">
+    <md-button ng-show="emp.editBtn" ng-click="emp.addEmp('edit')" class="sm-icon-button">
       <ng-md-icon icon="mode_edit" size="24"></ng-md-icon>
     </md-button>
     <md-button ng-show="emp.deleteBtn" ng-click="" class="sm-icon-button">

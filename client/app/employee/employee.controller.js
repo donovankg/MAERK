@@ -8,14 +8,24 @@
       var submitted = false;
       var self = this;
       var empRows = {};
-      var editEmp = [];
+      var editEmp = {};
       self.createEmp = Empfactory.createEmp;
       self.updateEmp = Empfactory.updateEmp;
-
-
       self.employees = Empfactory.getAll();
       this.addEmp = function(ev) {
+        for (var i = 0; i < self.employees.length; i++) {
+          // console.log(self.employees[i]._id);
+          if (self.employees[i]._id == empRows[0]) {
+             editEmp = self.employees[i];
+            break;
+          }else{
+            editEmp = {};
+          }
+        }
+
+        //console.log('the id is ', editEmp);
         $mdDialog.show({
+
           controller: addEmplCtrl,
           controllerAs: 'aec',
           templateUrl: '/app/employee/addemployee/addemployee.html',
@@ -23,7 +33,10 @@
           targetEvent: ev,
           clickOutsideToClose: true,
           escapeToClose: true,
-          ok: 'Close'
+          ok: 'Close',
+          locals: {
+            editEmp: editEmp
+          }
             // fullscreen: this.customFullscreen
         });
       };
@@ -34,10 +47,8 @@
           .hideDelay(3000)
         );
       }
-
       this.statusEmp = function(status) {
         // console.log(status);
-
         // console.log(empRows);
         for (var i = 0; i < empRows.length; i++) {
           for (var j = 0; j < self.employees.length; j++) {
@@ -58,10 +69,7 @@
             }
           }
         }
-
       }
-
-
       this.showEdit;
       this.selectedRowCallback = function(rows) {
         // console.log(rows);
@@ -75,17 +83,13 @@
           this.editBtn = true;
           this.deleteBtn = true;
           this.activeBtn = true;
-
           // addBtn = true;
         } else {
           this.addBtn = true;
           this.editBtn = false;
           this.deleteBtn = true;
           this.activeBtn = true;
-
-
         }
-
         this.showEdit = true;
         empRows = rows;
       }
