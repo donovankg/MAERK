@@ -36,21 +36,21 @@
       }
 
       this.statusEmp = function(status) {
-        console.log(status);
+        // console.log(status);
 
         // console.log(empRows);
         for (var i = 0; i < empRows.length; i++) {
           for (var j = 0; j < self.employees.length; j++) {
             if (self.employees[j]._id == empRows[i]) {
               editEmp = self.employees[j];
-              console.log(editEmp.activate);
+              // console.log(editEmp.activate);
               if (status === '1') {
                 editEmp.activate = true;
-                console.log(editEmp.activate);
+                // console.log(editEmp.activate);
 
               } else {
                 editEmp.activate = false;
-                console.log(editEmp.activate);
+                // console.log(editEmp.activate);
                 //turned off
               }
               self.updateEmp(editEmp);

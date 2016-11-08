@@ -20,9 +20,27 @@
     <md-button ng-show="emp.deleteBtn" ng-click="" class="sm-icon-button">
       <ng-md-icon icon="delete" size="24"></ng-md-icon>
     </md-button>
-    <md-button ng-show="emp.activeBtn" ng-click="emp.statusEmp('1')" class="sm-icon-button">
+    <md-list-item ng-show="emp.activeBtn">
       <ng-md-icon icon="menu" size="24"></ng-md-icon>
-    </md-button>
+      <md-menu class="md-secondary">
+        <md-button class="md-icon-button">
+          <md-icon md-svg-icon="communication:message"></md-icon>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button ng-click="emp.statusEmp('1')">activate</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ng-click="emp.statusEmp('2')">deactivate</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </md-list-item>
+
+
+
+
+
   </md-toolbar>
   <md-content flex layout="column">
 
