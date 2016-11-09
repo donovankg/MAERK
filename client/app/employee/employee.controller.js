@@ -1,9 +1,8 @@
 'use strict';
 (function(Employee) {
 
-
   angular.module('maerkApp.employee')
-    .controller('EmployeeController', function(Empfactory, $mdToast, $mdDialog, $scope) {
+    .controller('EmployeeController', function(Empfactory, $mdToast, $mdDialog) {
       var errors = {};
       var submitted = false;
       var self = this;
@@ -14,7 +13,6 @@
       self.employees = Empfactory.getAll();
       this.addEmp = function(ev) {
         for (var i = 0; i < self.employees.length; i++) {
-          // console.log(self.employees[i]._id);
           if (self.employees[i]._id == empRows[0]) {
              editEmp = self.employees[i];
             break;
@@ -22,10 +20,7 @@
             editEmp = {};
           }
         }
-
-        //console.log('the id is ', editEmp);
         $mdDialog.show({
-
           controller: addEmplCtrl,
           controllerAs: 'aec',
           templateUrl: '/app/employee/addemployee/addemployee.html',
@@ -37,7 +32,6 @@
           locals: {
             editEmp: editEmp
           }
-            // fullscreen: this.customFullscreen
         });
       };
       this.deleteRowCallBack = function(rows) {
@@ -48,21 +42,14 @@
         );
       }
       this.statusEmp = function(status) {
-        // console.log(status);
-        // console.log(empRows);
         for (var i = 0; i < empRows.length; i++) {
           for (var j = 0; j < self.employees.length; j++) {
             if (self.employees[j]._id == empRows[i]) {
               editEmp = self.employees[j];
-              // console.log(editEmp.activate);
               if (status === '1') {
                 editEmp.activate = true;
-                // console.log(editEmp.activate);
-
               } else {
                 editEmp.activate = false;
-                // console.log(editEmp.activate);
-                //turned off
               }
               self.updateEmp(editEmp);
               break;
@@ -70,9 +57,9 @@
           }
         }
       }
+
       this.showEdit;
       this.selectedRowCallback = function(rows) {
-        // console.log(rows);
         if (rows.length == 0) {
           this.editBtn = false;
           this.deleteBtn = false;
@@ -83,7 +70,6 @@
           this.editBtn = true;
           this.deleteBtn = true;
           this.activeBtn = true;
-          // addBtn = true;
         } else {
           this.addBtn = true;
           this.editBtn = false;

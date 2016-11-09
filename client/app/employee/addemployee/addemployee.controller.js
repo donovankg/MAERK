@@ -3,16 +3,17 @@
 function addEmplCtrl($mdDialog, Empfactory, editEmp) {
   this.newEmp = {};
   var newEmployee;
-  if (angular.equals(this.newEmp, editEmp)) {
-    console.log('true from new');
-    this.newEmp.client = [];
-    this.newEmp.skill = [];
+  var oldCopy = editEmp;
+  this.newEmp.client = [];
+  this.newEmp.skill = [];
+  console.log(editEmp);
+  if ($.isEmptyObject(editEmp)) {
+    this.newEmp.activate = true;
     newEmployee = true;
   } else {
-    this.newEmp = editEmp;
+    angular.copy(editEmp, this.newEmp);
     newEmployee = false;
   }
-  console.log(this.newEmp);
 
   this.placeType = ('fulltime project part-time').split(' ').map(function(workType) {
     return {
@@ -21,10 +22,17 @@ function addEmplCtrl($mdDialog, Empfactory, editEmp) {
   });
   this.pushEmp = function() {
     if (newEmployee === true) {
+      console.log(this.newEmp);
       Empfactory.createEmp(this.newEmp);
+
+
     } else {
+      console.log('old emp');
+
+      console.log(this.newEmp,' between');
       Empfactory.updateEmp(this.newEmp);
     }
+
   }
 
   this.submitted = function() {
@@ -35,6 +43,7 @@ function addEmplCtrl($mdDialog, Empfactory, editEmp) {
 
   this.cancel = function() {
     $mdDialog.hide();
+    // Empfactory.updateEmp(oldCopy);
     // console.log('cancelled');
   }
 }
