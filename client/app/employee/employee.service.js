@@ -21,11 +21,10 @@
           }
         }
       });
-// resourceMethods
+      // resourceMethods
       // var EmpResource = $resource(EmpService + ":id", {
       //   id: "@_id"
       // });
-
 
       var emps = EmpResource.query();
       // spot to add delete emp later on
@@ -36,12 +35,29 @@
         })
       }
 
-      var updateEmp = function(data) {
-        console.log(data);
-        EmpResource.update({_id:data._id},data).$promise.then(function(editEmp) {
+      var updateEmp = function(d) {
+        console.log('----->',d);
 
-        //   emps.push(editEmp);
-        //   console.log(editEmp);
+        EmpResource.update({
+          _id: d._id
+        }, d).$promise.then(function(newEmpUpdated) {
+          console.log(d);
+          console.log(newEmpUpdated.skill);
+          for (var i = 0; i < emps.length; i++) {
+
+
+            if (emps[i]._id == newEmpUpdated._id) {
+              // emps[i].skill = newEmpUpdated.skill;
+              // emps[i].skill = newEmpUpdated.client;
+              emps[i] = newEmpUpdated;
+
+
+            }
+          }
+
+
+          //  emps.push(d);
+          // console.log(editEmp);
         });
       }
 

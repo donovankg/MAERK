@@ -1,5 +1,7 @@
 <md-dialog aria-label="test" flex="90">
-  <form class="form" name="addNew" ng-submit="aec.pushEmp(addNew)" novalidate>
+  <feature></feature>
+  <form class="form" name="addNew" novalidate>
+     <!-- ng-submit="aec.pushEmp(addNew)" -->
     <md-toolbar>
       <div class="md-toolbar">
         <h2></h2>
@@ -17,20 +19,28 @@
           <label for="">last name</label>
           <input type="text" name="last_name" ng-model="aec.newEmp.last_name" required>
         </md-input-container>
+        <label for="">Clients(s)</label>
         <md-chips ng-model="aec.newEmp.client" placeholder="Enter Clients (type their name and hit enter for each)" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter Clients" required></md-chips>
+        <label for="">skill(s)</label>
         <md-chips ng-model="aec.newEmp.skill" placeholder="Enter skills" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter skills" required></md-chips>
         <md-input-container class="md-block" flex>
           <label for="">recruiter</label>
           <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" required>
         </md-input-container>
+
         <md-input-container class="md-block" flex>
+          <label for="">placement type</label>
+          <input type="text" name="placement_type" ng-model="aec.newEmp.placement_type" required>
+        </md-input-container>
+
+        <!-- <md-input-container class="md-block" flex>
           <label for="">Placement Type</label>
           <md-select ng-model="aec.newEmp.placement_type" required name="placement_type" ng-model="aec.newEmp.placement_type">
             <md-option ng-repeat="workType in aec.placeType" value="{{workType.types}}">
               {{workType.types}}
             </md-option>
           </md-select>
-        </md-input-container>
+        </md-input-container> -->
 
         <md-input-container class="md-block" flex>
           <label for="">salary</label>
@@ -66,16 +76,12 @@
           <label for="">client bill pay</label>
           <input type="text" name="client_bill_pay" ng-model="aec.newEmp.client_bill_pay" required>
         </md-input-container>
-        <md-input-container class="md-block" flex>
-          <label for="">activate</label>
-          <input type="text" name="activate" ng-model="aec.newEmp.activate" required>
-        </md-input-container>
         <md-dialog-content>
           <div class="md-dialog-content">
           </div>
         </md-dialog-content>
-        <md-dialog-actions>
-          <md-button class="md-primary md-raised" ng-click="aec.submitted()" type="submit">
+        <md-dialog-actions id='getToast'>
+          <md-button class="md-primary md-raised" ng-click="aec.confirm()" type="submit">
             Add Employee
           </md-button>
           <md-button class="md-primary md-raised" ng-click="aec.cancel()">
