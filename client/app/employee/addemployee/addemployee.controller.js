@@ -1,12 +1,12 @@
 "use strict";
 
-function addEmplCtrl($mdDialog, Empfactory, editEmp) {
+function addEmplCtrl($mdDialog, Empfactory, editEmp, $mdToast) {
   this.newEmp = {};
   var newEmployee;
   var oldCopy = editEmp;
   this.newEmp.client = [];
   this.newEmp.skill = [];
-  console.log(editEmp);
+  // console.log(editEmp);
   if ($.isEmptyObject(editEmp)) {
     this.newEmp.activate = true;
     newEmployee = true;
@@ -15,21 +15,47 @@ function addEmplCtrl($mdDialog, Empfactory, editEmp) {
     newEmployee = false;
   }
 
-  this.placeType = ('fulltime project part-time').split(' ').map(function(workType) {
-    return {
-      types: workType
-    };
-  });
-  this.pushEmp = function() {
+  this.confirm = function() {
+    if (newEmployee == true) {
+
+      this.pushEmp(addNew);
+      $mdDialog.hide();
+    } else {
+      confirmToast();
+
+    }
+
+  }
+  var confirmToast = () => {
+    // console.log('toast opens');
+    $mdToast.show({
+      parent: angular.element(document.feature),
+      hideDelay: 0,
+      position: 'bottom right',
+      controller: 'toastCtrl',
+      controllerAs: 'vm',
+      templateUrl: '/app/employee/toast/toast.html',
+      locals:{
+        // addNew: addNew,
+        pushEmp: this.pushEmp
+      }
+    })
+  }
+
+
+  // this.placeType = ('fulltime project part-time').split(' ').map(function(workType) {
+  //   return {
+  //     types: workType
+  //   };
+  // });
+
+  this.pushEmp = () => {
     if (newEmployee === true) {
-      console.log(this.newEmp);
+      // console.log(this.newEmp);
       Empfactory.createEmp(this.newEmp);
 
 
     } else {
-      console.log('old emp');
-
-      console.log(this.newEmp,' between');
       Empfactory.updateEmp(this.newEmp);
     }
 

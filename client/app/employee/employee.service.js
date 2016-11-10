@@ -36,7 +36,7 @@
       }
 
       var updateEmp = function(d) {
-
+        console.log('----->',d);
 
         EmpResource.update({
           _id: d._id
