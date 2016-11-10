@@ -29,9 +29,9 @@ function addEmplCtrl($mdDialog, Empfactory, editEmp, $mdToast) {
   var confirmToast = () => {
     // console.log('toast opens');
     $mdToast.show({
-      parent: angular.element(document.feature),
+      parent: document.getElementById('getToast'),
       hideDelay: 0,
-      position: 'bottom right',
+      position: 'top right',
       controller: 'toastCtrl',
       controllerAs: 'vm',
       templateUrl: '/app/employee/toast/toast.html',
