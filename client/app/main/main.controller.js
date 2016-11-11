@@ -10,9 +10,6 @@
       this.$mdSidenav=$mdSidenav;
     }
 
-    close(){
-      this.$mdSidenav('leftSideNav').close();
-    }
 
     $onInit() {
       this.$http.get('/api/things')
