@@ -18,5 +18,13 @@ angular.module('maerkApp')
         controller: 'EmployeeController',
         controllerAs: 'emp',
         authenticate: true
-      });
+      })
+      .state('main.report',{
+        url:'/report',
+        templateUrl: 'app/report/report.html',
+        controller: 'ReportController',
+        controllerAs: 'rep',
+        authenticate: true
+      })
+      ;
   });
