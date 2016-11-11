@@ -5,31 +5,66 @@
   <md-toolbar class="md-theme-indigo">
     <h1 class="md-toolbar-tools">Future Story</h1>
   </md-toolbar>
-
-    <!-- <md-menu class="md-secondary"> -->
-      <md-button md-no-ink class="md-primary">
-        Reports
+  <md-list-item>
+    <p>Reports</p>
+    <md-menu class="md-secondary">
+      <md-button class="md-icon-button">
       </md-button>
-      <md-menu-content>
+      <md-menu-content width="4">
         <md-menu-item>
-          <md-button>Skills</md-button>
+          <md-button>
+            Skills
+          </md-button>
         </md-menu-item>
         <md-menu-item>
-          <md-button>Clients</md-button>
+          <md-button>
+            Clients
+          </md-button>
         </md-menu-item>
         <md-menu-item>
-          <md-button>Recruiters</md-button>
+          <md-button>
+            Recruiters
+          </md-button>
         </md-menu-item>
       </md-menu-content>
-    <!-- </md-menu> -->
-    <md-button class="md-secondary" ui-sref=".employee" >employees</md-button>
+    </md-menu>
 
-  <md-button ng-click="vm.close()" class="md-primary" hide-gt-md="">
-    close Menu
-  </md-button>
+  </md-list-item>
+  <md-list-item ui-sref=".employee">
+    <p>Employees</p>
+
+    <md-menu class="md-secondary">
+      <md-button class="md-icon-button">
+      </md-button>
+      <!-- <md-menu-content width="4">
+        <md-menu-item>
+          <md-button>
+            sample 1
+          </md-button>
+        </md-menu-item>
+        <md-menu-item>
+          <md-button>
+            sample 2
+          </md-button>
+        </md-menu-item>
+        <md-menu-divider></md-menu-divider>
+        <md-menu-item>
+          <md-button>
+            sample 3
+          </md-button>
+        </md-menu-item>
+      </md-menu-content> -->
+    </md-menu>
+
+  </md-list-item>
+
+
+
 </md-sidenav>
-<!-- </div> -->
-<!--- end SideNav-->
+
+
+
+
 
 <md-content layout="column" flex>
   <ui-view layout="column" flex></ui-view>
