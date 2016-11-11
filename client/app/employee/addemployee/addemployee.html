@@ -1,7 +1,7 @@
 <md-dialog aria-label="test" flex="90">
   <feature></feature>
   <form class="form" name="addNew" novalidate>
-     <!-- ng-submit="aec.pushEmp(addNew)" -->
+    <!-- ng-submit="aec.pushEmp(addNew)" -->
     <md-toolbar>
       <div class="md-toolbar">
         <h2></h2>
@@ -13,75 +13,103 @@
       <div layout="column" flex>
         <md-input-container class="md-block" flex>
           <label for="">first name</label>
-          <input type="text" name="first_name" ng-model="aec.newEmp.first_name" required>
+          <input type="text" id="first_name" name="first_name" ng-model="aec.newEmp.first_name" ng-pattern="/^[^\W\d_]+$/" required>
+          <div ng-messages="addNew.first_name.$error">
+            <div ng-message="required">please enter the first name of the employee</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">last name</label>
-          <input type="text" name="last_name" ng-model="aec.newEmp.last_name" required>
+          <input type="text" name="last_name" ng-model="aec.newEmp.last_name" ng-pattern="/^[^\W\d_]+$/" required>
+          <div ng-messages="addNew.last_name.$error">
+            <div ng-message="required">please enter the last name of the employee</div>
+          </div>
         </md-input-container>
         <label for="">Clients(s)</label>
         <md-chips ng-model="aec.newEmp.client" placeholder="Enter Clients (type their name and hit enter for each)" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter Clients" required></md-chips>
         <label for="">skill(s)</label>
         <md-chips ng-model="aec.newEmp.skill" placeholder="Enter skills" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Enter skills" required></md-chips>
+
         <md-input-container class="md-block" flex>
           <label for="">recruiter</label>
-          <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" required>
+          <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" ng-pattern="/^[^\W\d_]+$/" required>
+          <div ng-messages="addNew.recruiter.$error">
+            <div ng-message="required">please enter the recruiter's name</div>
+          </div>
         </md-input-container>
 
         <md-input-container class="md-block" flex>
           <label for="">placement type</label>
-          <input type="text" name="placement_type" ng-model="aec.newEmp.placement_type" required>
+          <input type="text" name="placement_type" ng-model="aec.newEmp.placement_type" ng-pattern="/(fulltime|part-time|project|parttime|full-time)/" required>
+          <div ng-messages="addNew.placement_type.$error">
+            <div ng-message="required">please enter fulltime, part-time, or project</div>
+          </div>
         </md-input-container>
-
-        <!-- <md-input-container class="md-block" flex>
-          <label for="">Placement Type</label>
-          <md-select ng-model="aec.newEmp.placement_type" required name="placement_type" ng-model="aec.newEmp.placement_type">
-            <md-option ng-repeat="workType in aec.placeType" value="{{workType.types}}">
-              {{workType.types}}
-            </md-option>
-          </md-select>
-        </md-input-container> -->
 
         <md-input-container class="md-block" flex>
           <label for="">salary</label>
-          <input type="text" name="salary" ng-model="aec.newEmp.salary" required>
+          <input type="number" name="salary" ng-model="aec.newEmp.salary" required>
+          <div ng-messages="addNew.salary.$error">
+            <div ng-message="required">please enter the salary</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">Insurance</label>
-          <input type="text" name="insurance" ng-model="aec.newEmp.insurance" required>
+          <input type="number" name="insurance" ng-model="aec.newEmp.insurance" required>
+          <div ng-messages="addNew.insurance.$error">
+            <div ng-message="required">please enter the insurance cost</div>
+          </div>
         </md-input-container>
       </div>
       <div layout="column" flex>
         <md-input-container class="md-block" flex>
           <label for="">relocation</label>
-          <input type="text" name="relocation" ng-model="aec.newEmp.relocation" required>
+          <input type="number" name="relocation" ng-model="aec.newEmp.relocation" required>
+          <div ng-messages="addNew.relocation.$error">
+            <div ng-message="required">please enter the relocation cost</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">immigration</label>
-          <input type="text" name="immigration" ng-model="aec.newEmp.immigration" required>
+          <input type="number" name="immigration" ng-model="aec.newEmp.immigration" required>
+          <div ng-messages="addNew.immigration.$error">
+            <div ng-message="required">Please enter the immigrtion cost</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">pay vacation cost</label>
-          <input type="text" name="pay_vacation_cost" ng-model="aec.newEmp.pay_vacation_cost" required>
+          <input type="number" name="pay_vacation_cost" ng-model="aec.newEmp.pay_vacation_cost" required>
+          <div ng-messages="addNew.pay_vacation_cost.$error">
+            <div ng-message="required">please enter the paid vacation cost</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">ksquare hourly cost</label>
-          <input type="text" name="ksquare_hourly_cost" ng-model="aec.newEmp.ksquare_hourly_cost" required>
+          <input type="number" name="ksquare_hourly_cost" ng-model="aec.newEmp.ksquare_hourly_cost" required>
+          <div ng-messages="addNew.ksquare_hourly_cost.$error">
+            <div ng-message="required">please enter Ksquare's hourly cost</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">target bill rate</label>
-          <input type="text" name="target_bill_rate" ng-model="aec.newEmp.target_bill_rate" required>
+          <input type="number" name="target_bill_rate" ng-model="aec.newEmp.target_bill_rate" required>
+          <div ng-messages="addNew.target_bill_rate.$error">
+            <div ng-message="required">Please enter the target bill rate</div>
+          </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">client bill pay</label>
-          <input type="text" name="client_bill_pay" ng-model="aec.newEmp.client_bill_pay" required>
+          <input type="number" name="client_bill_pay" ng-model="aec.newEmp.client_bill_pay" required>
+          <div ng-messages="addNew.client_bill_pay.$error">
+            <div ng-message="required">please enter the client bill pay amount</div>
+          </div>
         </md-input-container>
         <md-dialog-content>
           <div class="md-dialog-content">
           </div>
         </md-dialog-content>
         <md-dialog-actions id='getToast'>
-          <md-button class="md-primary md-raised" ng-click="aec.confirm()" type="submit">
+          <md-button class="md-primary md-raised" ng-click="aec.confirm()" ng-disabled="addNew.$invalid" type="submit">
             Add Employee
           </md-button>
           <md-button class="md-primary md-raised" ng-click="aec.cancel()">
