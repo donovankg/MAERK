@@ -36,13 +36,13 @@
       }
 
       var updateEmp = function(d) {
-        console.log('----->',d);
+        // console.log('----->',d);
 
         EmpResource.update({
           _id: d._id
         }, d).$promise.then(function(newEmpUpdated) {
-          console.log(d);
-          console.log(newEmpUpdated.skill);
+          // console.log(d);
+          // console.log(newEmpUpdated.skill);
           for (var i = 0; i < emps.length; i++) {
 
 
