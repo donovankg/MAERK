@@ -13,14 +13,14 @@
       <div layout="column" flex>
         <md-input-container class="md-block" flex>
           <label for="">first name</label>
-          <input type="text" id="first_name" name="first_name" ng-model="aec.newEmp.first_name" ng-pattern="/^[a-zA-Z]/" required>
+          <input type="text" id="first_name" name="first_name" ng-model="aec.newEmp.first_name" ng-pattern="/^[^\W\d_]+$/" required>
           <div ng-messages="addNew.first_name.$error">
             <div ng-message="required">please enter the first name of the employee</div>
           </div>
         </md-input-container>
         <md-input-container class="md-block" flex>
           <label for="">last name</label>
-          <input type="text" name="last_name" ng-model="aec.newEmp.last_name" ng-pattern="/^[a-zA-Z]/" required>
+          <input type="text" name="last_name" ng-model="aec.newEmp.last_name" ng-pattern="/^[^\W\d_]+$/" required>
           <div ng-messages="addNew.last_name.$error">
             <div ng-message="required">please enter the last name of the employee</div>
           </div>
@@ -32,7 +32,7 @@
 
         <md-input-container class="md-block" flex>
           <label for="">recruiter</label>
-          <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" ng-pattern="/^[a-zA-Z]/" required>
+          <input type="text" name="recruiter" ng-model="aec.newEmp.recruiter" ng-pattern="/^[^\W\d_]+$/" required>
           <div ng-messages="addNew.recruiter.$error">
             <div ng-message="required">please enter the recruiter's name</div>
           </div>
