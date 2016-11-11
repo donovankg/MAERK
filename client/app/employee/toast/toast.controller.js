@@ -9,7 +9,6 @@
         // console.log('emp confirmed');
         $mdToast.hide();
         $mdDialog.hide();
-
         pushEmp();
       }
 
