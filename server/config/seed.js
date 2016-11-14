@@ -7,11 +7,11 @@
 import Thing from '../api/thing/thing.model';
 import User from '../api/user/user.model';
 import Employee from '../api/employee/employee.model';
-import Report from '../api/report/report.model';
+import Client from '../api/report/client.model';
 
-Report.find({}).remove()
+Client.find({}).remove()
 .then(()=>{
-  Report.create({
+  Client.create({
     year: 2015,
     january: [
       {

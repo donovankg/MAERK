@@ -1,8 +1,8 @@
 'use strict';
 (function() {
   angular.module('maerkApp')
-    .factory('Repfactory', function($resource, RepService) {
-      var RepResource = $resource('/api/Reployee/:id', {
+    .factory('Clifactory', function($resource) {
+      var CliResource = $resource('/api/report/:id', {
         id: '@_id'
       }, {
         getOne: {
@@ -25,53 +25,59 @@
           params: {
             year: 'year'
           }
+        },
+        getMonth: {
+          method: 'get',
+          params: {
+            month: 'month'
+          }
         }
       });
 
 
-      var Reps = RepResource.query();
-      // spot to add delete Rep later on
+      var Clis = CliResource.query();
+      // spot to add delete Cli later on
 
-      var createRep = function(newRep) {
-        new RepResource(newRep).$save().then(function(d) {
-          Reps.push(d);
+      var createCli = function(newCli) {
+        new CliResource(newCli).$save().then(function(d) {
+          Clis.push(d);
         })
       }
 
-      var updateRep = function(d) {
+      var updateCli = function(d) {
         // console.log('----->',d);
 
-        RepResource.update({
+        CliResource.update({
           _id: d._id
-        }, d).$promise.then(function(newRepUpdated) {
+        }, d).$promise.then(function(newCliUpdated) {
           // console.log(d);
-          // console.log(newRepUpdated.skill);
-          for (var i = 0; i < Reps.length; i++) {
+          // console.log(newCliUpdated.skill);
+          for (var i = 0; i < Clis.length; i++) {
 
 
-            if (Reps[i]._id == newRepUpdated._id) {
-              // Reps[i].skill = newRepUpdated.skill;
-              // Reps[i].skill = newRepUpdated.client;
-              Reps[i] = newRepUpdated;
+            if (Clis[i]._id == newCliUpdated._id) {
+              // Clis[i].skill = newCliUpdated.skill;
+              // Clis[i].skill = newCliUpdated.client;
+              Clis[i] = newCliUpdated;
 
 
             }
           }
 
 
-          //  Reps.push(d);
-          // console.log(editRep);
+          //  Clis.push(d);
+          // console.log(editCli);
         });
       }
 
       var getAll = function() {
-        return Reps;
+        return Clis;
       }
       return {
-        createRep: createRep,
-        updateRep: updateRep,
+        createCli: createCli,
+        updateCli: updateCli,
         getAll: getAll,
-        RepResource: RepResource
+        CliResource: CliResource
       }
     });
 })();
