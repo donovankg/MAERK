@@ -1,6 +1,5 @@
 <md-content>
-  <div ng-cloak="" class="tabsdemoDynamicHeight" ng-app="MyApp">
-    <md-content>
+      <md-content>
       <md-tabs md-dynamic-height="" md-border-bottom="">
         <md-tab label="Jan">
           <md-content class="md-padding">
@@ -50,22 +49,19 @@
           <md-content class="md-padding">
           </md-content>
         </md-tab>
-
-
       </md-tabs>
     </md-content>
-  </div>
 
 </md-content>
 <div layout="row" layout-xs="column" >
 
 
   <!-- table -->
-  <div ui-view="client-table">
+  <div ui-view="client-table" flex>
 place holder for client table
   </div>
   <!-- chart -->
-  <div ui-view="client-chart">
+  <div ui-view="client-chart" flex>
 place holder for client chart
   </div>
 </div>
