@@ -33,5 +33,11 @@ angular.module('maerkApp')
         controllerAs: 'rep',
         authenticate: true
       })
-      ;
+      .state('main.recruiters',{
+        url:'/report-recruiters',
+        templateUrl: 'app/report/recruiters.html',
+        controller: 'ClientController',
+        controllerAs: 'rep',
+        authenticate: true
+      });
   });
