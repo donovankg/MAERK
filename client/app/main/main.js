@@ -9,7 +9,7 @@ angular.module('maerkApp')
         abstract: true,
         template: '<main class ="flex layout-row"></main>',
         authenticate: true
-// may need to make it abstract
+          // may need to make it abstract
 
       })
       .state('main.employee', {
@@ -19,19 +19,11 @@ angular.module('maerkApp')
         controllerAs: 'emp',
         authenticate: true
       })
-      .state('main.client',{
-        url:'/report-client',
-        templateUrl: 'app/report/client.html',
+      .state('main.client', {
+        url: '/report-client',
+        templateUrl: 'app/report/client/client.html',
         controller: 'ClientController',
-        controllerAs: 'rep',
+        controllerAs: 'cli',
         authenticate: true
-      })
-      .state('main.skill',{
-        url:'/report-skill',
-        templateUrl: 'app/report/skill.html',
-        controller: 'ClientController',
-        controllerAs: 'rep',
-        authenticate: true
-      })
-      ;
+      });
   });

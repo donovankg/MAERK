@@ -51,10 +51,8 @@
         </md-tab>
       </md-tabs>
     </md-content>
-
 </md-content>
 <div layout="row" layout-xs="column" >
-
 
   <!-- table -->
   <div ui-view="client-table" flex>
@@ -62,6 +60,10 @@ place holder for client table
   </div>
   <!-- chart -->
   <div ui-view="client-chart" flex>
-place holder for client chart
+    <div google-chart chart="cli.chart" style="padding:0;width:100%">
+  </div>
+ <!-- https://github.com/angular-google-chart/angular-google-chart -->
+
+
   </div>
 </div>
