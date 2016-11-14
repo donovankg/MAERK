@@ -26,5 +26,12 @@ angular.module('maerkApp')
         controllerAs: 'rep',
         authenticate: true
       })
+      .state('main.skill',{
+        url:'/report-skill',
+        templateUrl: 'app/report/skill.html',
+        controller: 'ClientController',
+        controllerAs: 'rep',
+        authenticate: true
+      })
       ;
   });

@@ -2,7 +2,7 @@
 (function() {
   angular.module('maerkApp')
     .factory('Clifactory', function($resource) {
-      var CliResource = $resource('/api/client/:id', {
+      var CliResource = $resource('/api/report/:id', {
         id: '@_id'
       }, {
         getOne: {
