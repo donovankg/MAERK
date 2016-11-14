@@ -1,7 +1,7 @@
 'use strict';
 (function(Report) {
 
-  angular.module('maerkApp.Report')
+  angular.module('maerkApp.report')
     .controller('ReportController', function(Repfactory, $mdToast, $mdDialog) {
 
       self.createRep = Repfactory.createRep;

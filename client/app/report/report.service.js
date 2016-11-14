@@ -2,7 +2,7 @@
 (function() {
   angular.module('maerkApp')
     .factory('Repfactory', function($resource, RepService) {
-      var RepResource = $resource('/api/Reployee/:id', {
+      var RepResource = $resource('/api/Report/:id', {
         id: '@_id'
       }, {
         getOne: {
