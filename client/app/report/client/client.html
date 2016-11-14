@@ -1,11 +1,11 @@
 <md-content>
       <md-content>
       <md-tabs md-dynamic-height="" md-border-bottom="">
-        <md-tab label="Jan">
+        <md-tab label="Jan" ng-click="cli.monthSelect('jan')">
           <md-content class="md-padding">
           </md-content>
         </md-tab>
-        <md-tab label="Feb">
+        <md-tab label="Feb" ng-click="cli.monthSelect('feb')">
           <md-content class="md-padding">
           </md-content>
         </md-tab>
@@ -61,6 +61,7 @@ place holder for client table
   <!-- chart -->
   <div ui-view="client-chart" flex>
     <div google-chart chart="cli.chart" style="padding:0;width:100%">
+      
   </div>
  <!-- https://github.com/angular-google-chart/angular-google-chart -->
 
