@@ -1,12 +1,12 @@
 'use strict';
-(function(Report) {
+(function(Client) {
 
-  angular.module('maerkApp.report')
-    .controller('ReportController', function(Repfactory, $mdToast, $mdDialog) {
+  angular.module('maerkApp.client')
+    .controller('ClientController', function(Clifactory, $mdToast, $mdDialog) {
 
-      self.createRep = Repfactory.createRep;
-      self.updateRep = Repfactory.updateRep;
-      self.Reports = Repfactory.getAll();
+      self.createCli = Clifactory.createCli;
+      self.updateCli = Clifactory.updateCli;
+      self.Clients = Clifactory.getAll();
 
     })
-}());
+})();

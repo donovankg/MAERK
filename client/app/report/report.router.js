@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('maerkApp.report');
+angular.module('maerkApp.client');

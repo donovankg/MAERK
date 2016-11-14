@@ -19,10 +19,10 @@ angular.module('maerkApp')
         controllerAs: 'emp',
         authenticate: true
       })
-      .state('main.report',{
+      .state('main.client',{
         url:'/report-client',
-        templateUrl: 'app/report/report.html',
-        controller: 'ReportController',
+        templateUrl: 'app/report/client.html',
+        controller: 'ClientController',
         controllerAs: 'rep',
         authenticate: true
       })

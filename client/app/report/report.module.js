@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('maerkApp.report', ['maerkApp.auth', 'ui.router']);
+angular.module('maerkApp.client', ['maerkApp.auth', 'ui.router']);
