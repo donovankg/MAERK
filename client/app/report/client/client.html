@@ -1,69 +1,61 @@
 <md-content>
-      <md-content>
-      <md-tabs md-dynamic-height="" md-border-bottom="">
-        <md-tab label="Jan" ng-click="cli.monthSelect('jan')">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Feb" ng-click="cli.monthSelect('feb')">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Mar">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Apr">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="May">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Jun">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Jul">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Aug">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Sept">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Oct">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Nov">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Dec">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-content>
+  <md-content>
+    <md-tabs>
+      <md-tab label="Jan" ng-click="cli.monthSelect('jan')"></md-tab>
+      <md-tab label="Feb" ng-click="cli.monthSelect('feb')"></md-tab>
+      <md-tab label="Mar" ng-click="cli.monthSelect('mar')"></md-tab>
+      <md-tab label="Apr" ng-click="cli.monthSelect('apr')"></md-tab>
+      <md-tab label="May" ng-click="cli.monthSelect('may')"></md-tab>
+      <md-tab label="Jun" ng-click="cli.monthSelect('jun')"></md-tab>
+      <md-tab label="Jul" ng-click="cli.monthSelect('jul')"></md-tab>
+      <md-tab label="Aug" ng-click="cli.monthSelect('aug')"></md-tab>
+      <md-tab label="Sept" ng-click="cli.monthSelect('sept')"></md-tab>
+      <md-tab label="Oct" ng-click="cli.monthSelect('oct')"></md-tab>
+      <md-tab label="Nov" ng-click="cli.monthSelect('nov')"></md-tab>
+      <md-tab label="Dec" ng-click="cli.monthSelect('dec')"></md-tab>
+    </md-tabs>
+  </md-content>
 </md-content>
-<div layout="row" layout-xs="column" >
-
-  <!-- table -->
-  <div ui-view="client-table" flex>
-place holder for client table
+<md-toolbar >
+  <div class="md-toolbar-tools">
+    <div class="md-title">Client Report</div>
   </div>
+</md-toolbar>
+<div layout="column" layout-gt-sm="row" class="md-whiteframe-11dp">
+  <!-- table -->
+  <md-content flex layout="column">
+    <md-table-container>
+      <table md-table ng-model="cli.client">
+        <thead md-head md-order="cli.query.order">
+          <tr md-row>
+            <th md-column md-numeric>client</th>
+            <th md-column md-numeric>count</th>
+            <th md-column md-numeric>rev</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+
+          <tr md-row md-select="client" ng-repeat="client in cli.tableData
+          | filter: cli.filter.search | orderBy: cli.query.order | limitTo: cli.query.limit
+          : (cli.query.page -1) * cli.query.limit">
+            <td md-cell>{{client.name}}</td>
+            <td md-cell>{{client.count}}</td>
+            <td md-cell>{{client.rev}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+        <md-table-pagination layout = "row" md-limit="cli.query.limit"  md-limit-options="cli.limitOptions"
+        md-page="cli.query.page" md-total="{{cli.total}}" md-page-select="cli.options.pageSelect"
+        md-boundary-links="cli.options.boundaryLinks" md-on-paginate="cli.logPagination">
+      </md-table-pagination>
+  </md-content>
   <!-- chart -->
-  <div ui-view="client-chart" flex>
+  <div flex>
     <div google-chart chart="cli.chart">
 
-  </div>
- <!-- https://github.com/angular-google-chart/angular-google-chart -->
+    </div>
+    <!-- https://github.com/angular-google-chart/angular-google-chart -->
 
 
   </div>

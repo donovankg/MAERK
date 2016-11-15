@@ -23,56 +23,107 @@
           }
         };
       }
-      var chart1 = {};
-      // ColumnChart, PieChart
-      chart1.type = "PieChart";
       var reports = {
-        jan: {
-          verison: {
-            count: 10,
-            rev: 12000
-          },
-          att: {
-            count: 5,
-            rev: 7000
-          },
-          disney: {
-            count: 7,
-            rev: 8000
-          }
-        },
-        feb: {
-          verison: {
-            count: 8,
-            rev: 6000
-          },
-          att: {
-            count: 5,
-            rev: 8000
-          },
-          disney: {
-            count: 9,
-            rev: 12000
-          }
-        }
+        'count': 10,
+        'jan': [{
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "att",
+          count: 5,
+          rev: 7000
+        }, {
+          name: "disney",
+          count: 7,
+          rev: 8000
+        }],
+        'feb': [{
+          name: "verison",
+          count: 8,
+          rev: 6000
+        }, {
+          name: 'att',
+          count: 5,
+          rev: 8000
+        }, {
+          name: "disney",
+          count: 9,
+          rev: 12000
+        }]
       };
 
-      function createChartData(obj, prop) {
+      //pagination
+      this.query ={
+        order: 'name',
+        limit: 5,
+        page: 1
+      }
+      this.limitOptions = [5, 10, 15];
+
+      this.options = {
+        rowSelection: true,
+        multiSelect: true,
+        autoSelect: true,
+        decapitate: false,
+        largeEditDialog: false,
+        boundaryLinks: false,
+        limitSelect: true,
+        pageSelect: true
+      };
+      this.logPagination = function (page, limit) {
+        console.log('page: ', page);
+        console.log('limit: ', limit);
+      }
+
+      function createChartData(array, prop) {
         var arr = [];
         arr.push(['client', prop])
-        for (var key in obj) {
+        for (var i = 0; i < array.length; i++) {
           arr.push([
-            key, obj[key][prop]
+            array[i].name, array[i][prop]
           ])
         }
-        console.log(arr)
+        // console.log(arr)
         return arr;
       }
 
+      var chart1 = {};
+      // ColumnChart, PieChart
+      chart1.type = "PieChart";
       chart1.options = {
         displayExactValues: true,
-        width: 600,
-        height: 400,
+        legend: {
+          position: 'left'
+        },
         is3D: true,
         chartArea: {
           left: 10,
@@ -81,20 +132,24 @@
           height: 100
         }
       };
-
+      var month = 'jan';
+      this.total = reports[month].length;
       chart1.formatters = {
         number: [{
           columnNum: 1,
-          pattern: "$ #,##0.00"
+          pattern: 'employees '
+            // pattern: "$ #,##0.00"
         }]
       };
       this.monthSelect = function(month) {
         chart1.data = createChartData(reports[month], "count");
-        // this.chart = chart1;
+        this.tableData = reports[month];
+        console.log(reports[month].length);
       }
       this.chart = chart1;
       this.monthSelect('jan');
-
+      // console.log(this.chart);
+      this.tableData = reports.jan;
 
     })
 })();
