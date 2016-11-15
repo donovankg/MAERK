@@ -52,6 +52,9 @@
         }]
       };
 
+
+
+
       function createChartData(array, prop) {
         var arr = [];
         arr.push(['client', prop])
@@ -60,7 +63,7 @@
             array[i].name, array[i][prop]
           ])
         }
-        console.log(arr)
+        // console.log(arr)
         return arr;
       }
 
@@ -83,17 +86,18 @@
       chart1.formatters = {
         number: [{
           columnNum: 1,
-          pattern: "$ #,##0.00"
+          pattern: 'employees '
+          // pattern: "$ #,##0.00"
         }]
       };
       this.monthSelect = function(month) {
         chart1.data = createChartData(reports[month], "count");
-        // this.chart = chart1;
+        this.tableData = reports[month];
       }
       this.chart = chart1;
       this.monthSelect('jan');
-      console.log(this.chart);
-
+      // console.log(this.chart);
+      this.tableData = reports.jan;
 
     })
 })();

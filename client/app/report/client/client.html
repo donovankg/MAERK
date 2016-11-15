@@ -71,10 +71,10 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row md-select="client" md-auto-select ng-repeat="client in cli.chart">
-            <td md-cell>{{cli.chart.name}}</td>
-            <td md-cell>{{cli.chart.count}}</td>
-            <td md-cell>{{cli.chart.rev}}</td>
+          <tr md-row md-select="client" md-auto-select ng-repeat="client in cli.tableData">
+            <td md-cell>{{client.name}}</td>
+            <td md-cell>{{client.count}}</td>
+            <td md-cell>{{client.rev}}</td>
           </tr>
         </tbody>
       </table>
