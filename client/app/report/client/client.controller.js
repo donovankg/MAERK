@@ -24,7 +24,36 @@
         };
       }
       var reports = {
+        'count': 10,
         'jan': [{
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
           name: "verizon",
           count: 10,
           rev: 12000
@@ -52,8 +81,28 @@
         }]
       };
 
+      //pagination
+      this.query ={
+        order: 'name',
+        limit: 5,
+        page: 1
+      }
+      this.limitOptions = [5, 10, 15];
 
-
+      this.options = {
+        rowSelection: true,
+        multiSelect: true,
+        autoSelect: true,
+        decapitate: false,
+        largeEditDialog: false,
+        boundaryLinks: false,
+        limitSelect: true,
+        pageSelect: true
+      };
+      this.logPagination = function (page, limit) {
+        console.log('page: ', page);
+        console.log('limit: ', limit);
+      }
 
       function createChartData(array, prop) {
         var arr = [];
@@ -72,8 +121,9 @@
       chart1.type = "PieChart";
       chart1.options = {
         displayExactValues: true,
-        width: 600,
-        height: 400,
+        legend: {
+          position: 'left'
+        },
         is3D: true,
         chartArea: {
           left: 10,
@@ -82,17 +132,19 @@
           height: 100
         }
       };
-
+      var month = 'jan';
+      this.total = reports[month].length;
       chart1.formatters = {
         number: [{
           columnNum: 1,
           pattern: 'employees '
-          // pattern: "$ #,##0.00"
+            // pattern: "$ #,##0.00"
         }]
       };
       this.monthSelect = function(month) {
         chart1.data = createChartData(reports[month], "count");
         this.tableData = reports[month];
+        console.log(reports[month].length);
       }
       this.chart = chart1;
       this.monthSelect('jan');
