@@ -23,52 +23,50 @@
           }
         };
       }
-      var chart1 = {};
-      // ColumnChart, PieChart
-      chart1.type = "PieChart";
       var reports = {
-        jan: {
-          verison: {
-            count: 10,
-            rev: 12000
-          },
-          att: {
-            count: 5,
-            rev: 7000
-          },
-          disney: {
-            count: 7,
-            rev: 8000
-          }
-        },
-        feb: {
-          verison: {
-            count: 8,
-            rev: 6000
-          },
-          att: {
-            count: 5,
-            rev: 8000
-          },
-          disney: {
-            count: 9,
-            rev: 12000
-          }
-        }
+        'jan': [{
+          name: "verizon",
+          count: 10,
+          rev: 12000
+        }, {
+          name: "att",
+          count: 5,
+          rev: 7000
+        }, {
+          name: "disney",
+          count: 7,
+          rev: 8000
+        }],
+        'feb': [{
+          name: "verison",
+          count: 8,
+          rev: 6000
+        }, {
+          name: 'att',
+          count: 5,
+          rev: 8000
+        }, {
+          name: "disney",
+          count: 9,
+          rev: 12000
+        }]
       };
 
-      function createChartData(obj, prop) {
+      function createChartData(array, prop) {
         var arr = [];
         arr.push(['client', prop])
-        for (var key in obj) {
+        for (var i = 0; i < array.length; i++) {
           arr.push([
-            key, obj[key][prop]
+            array[i].name, array[i][prop]
           ])
         }
         console.log(arr)
         return arr;
       }
 
+      var chart1 = {};
+      // ColumnChart, PieChart
+      chart1.type = "PieChart";
       chart1.options = {
         displayExactValues: true,
         width: 600,
@@ -94,6 +92,7 @@
       }
       this.chart = chart1;
       this.monthSelect('jan');
+      console.log(this.chart);
 
 
     })

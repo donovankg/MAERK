@@ -1,69 +1,112 @@
 <md-content>
-      <md-content>
-      <md-tabs md-dynamic-height="" md-border-bottom="">
-        <md-tab label="Jan" ng-click="cli.monthSelect('jan')">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Feb" ng-click="cli.monthSelect('feb')">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Mar">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Apr">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="May">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Jun">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Jul">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Aug">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Sept">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Oct">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Nov">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-        <md-tab label="Dec">
-          <md-content class="md-padding">
-          </md-content>
-        </md-tab>
-      </md-tabs>
-    </md-content>
+  <md-content>
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+      <md-tab label="Jan" ng-click="cli.monthSelect('jan')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Feb" ng-click="cli.monthSelect('feb')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Mar" ng-click="cli.monthSelect('mar')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Apr" ng-click="cli.monthSelect('apr')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="May" ng-click="cli.monthSelect('may')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Jun" ng-click="cli.monthSelect('jun')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Jul" ng-click="cli.monthSelect('jul')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Aug" ng-click="cli.monthSelect('aug')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Sept" ng-click="cli.monthSelect('sept')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Oct" ng-click="cli.monthSelect('oct')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Nov" ng-click="cli.monthSelect('nov')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+      <md-tab label="Dec" ng-click="cli.monthSelect('dec')">
+        <md-content class="md-padding">
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
 </md-content>
-<div layout="row" layout-xs="column" >
+<div layout="row" layout-xs="column">
 
   <!-- table -->
   <div ui-view="client-table" flex>
-place holder for client table
+    <md-toolbar class="md-table-toolbar md-default" >
+      <div class="md-toolbar-tools">
+        <span>Clients</span>
+      </div>
+    </md-toolbar>
+    <md-table-container>
+      <table md-table ng-model="cli.client">
+        <thead md-head>
+          <tr md-row>
+            <th md-column md-numeric>client</th>
+            <th md-column md-numeric>count</th>
+            <th md-column md-numeric>rev</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row md-select="client" md-auto-select ng-repeat="client in cli.chart">
+            <td md-cell>{{cli.chart.name}}</td>
+            <td md-cell>{{cli.chart.count}}</td>
+            <td md-cell>{{cli.chart.rev}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+
+
+    <!-- <md-table-container>
+      <table md-table md-row-select>
+        <thead md-row>
+          <tr md-row>
+            <th md-column>client</th>
+            <th md-column>count</th>
+            <th md-column>revune</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row md-select="report" ng-repeat="report in cli.chart">
+            <td md-cell>{{cli.chart.jan}}</td>
+          </tr>
+        </tbody>
+
+
+      </table> -->
+    <!-- </md-table-container> -->
+
   </div>
   <!-- chart -->
   <div ui-view="client-chart" flex>
     <div google-chart chart="cli.chart">
 
-  </div>
- <!-- https://github.com/angular-google-chart/angular-google-chart -->
+    </div>
+    <!-- https://github.com/angular-google-chart/angular-google-chart -->
 
 
   </div>
