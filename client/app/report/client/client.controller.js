@@ -59,7 +59,7 @@
 
       function createChartData(obj, prop) {
         var arr = [];
-        arr.push(['client',prop])
+        arr.push(['client', prop])
         for (var key in obj) {
           arr.push([
             key, obj[key][prop]
@@ -88,13 +88,13 @@
           pattern: "$ #,##0.00"
         }]
       };
-this.monthSelect = function (month){
-  chart1.data = createChartData(reports[month], "count");
-  this.chart = chart1;
-}
+      this.monthSelect = function(month) {
+        chart1.data = createChartData(reports[month], "count");
+        // this.chart = chart1;
+      }
+      this.chart = chart1;
+      this.monthSelect('jan');
 
-      chart1.data = createChartData(reports.jan, "count");
-      this.chart = chart1
 
     })
 })();
