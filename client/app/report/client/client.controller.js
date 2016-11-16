@@ -4,9 +4,9 @@
   angular.module('maerkApp.client')
     .controller('ClientController', function(Report, $mdToast, $mdDialog) {
 
-      self.createCli = Report.createCli;
-      self.updateCli = Report.updateCli;
-      self.Clients = Report.getAll();
+      this.createCli = Report.createCli;
+      this.updateCli = Report.updateCli;
+      this.Clients = Report.getAll();
 
       function MainCtrl() {
         this.config = {

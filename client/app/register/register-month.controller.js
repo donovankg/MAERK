@@ -2,11 +2,11 @@
 (function(Register) {
 
   angular.module('maerkApp')
-    .controller('RegController', function($mdToast, $mdDialog, Report) {
+    .controller('RegController', function($mdToast, $mdDialog, Report, Empfactory) {
 
       this.createReg = Report.createReg;
       this.updateReg = Report.updateReg;
-      this.employees = Report.getAll();
+      this.employees = Empfactory.getAll();
 
 
       this.confirm = function(){
