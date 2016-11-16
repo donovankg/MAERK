@@ -2,11 +2,11 @@
 (function(Client) {
 
   angular.module('maerkApp.client')
-    .controller('ClientController', function(Clifactory, $mdToast, $mdDialog) {
+    .controller('ClientController', function(Report, $mdToast, $mdDialog) {
 
-      self.createCli = Clifactory.createCli;
-      self.updateCli = Clifactory.updateCli;
-      self.Clients = Clifactory.getAll();
+      self.createCli = Report.createCli;
+      self.updateCli = Report.updateCli;
+      self.Clients = Report.getAll();
 
       function MainCtrl() {
         this.config = {

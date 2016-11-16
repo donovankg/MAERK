@@ -69,6 +69,9 @@ var EmployeeSchema = new mongoose.Schema({
   },
   total_hour:{
     type: Number
+  },
+  off_set:{
+    type: Number
   }
 });
 

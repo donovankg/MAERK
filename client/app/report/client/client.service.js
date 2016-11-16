@@ -1,7 +1,7 @@
 'use strict';
 (function() {
   angular.module('maerkApp')
-    .factory('Clifactory', function($resource) {
+    .factory('Report', function($resource) {
       var CliResource = $resource('/api/report/:id', {
         id: '@_id'
       }, {

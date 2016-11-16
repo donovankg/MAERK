@@ -5,6 +5,7 @@
   <div>
     <label>Search Employee Table</label>
     <input type="text" name="name" ng-model="filterName" flex="50">
+    <!-- {{emp.employees}} -->
     <div ng-hide="true">
       {{(empfiltered = (emp.employees | filter: filterName))}}
     </div>

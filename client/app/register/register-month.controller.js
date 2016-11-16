@@ -2,8 +2,19 @@
 (function(Register) {
 
   angular.module('maerkApp')
-    .controller('RegController', function($mdToast, $mdDialog) {
-      console.log('test');
+    .controller('RegController', function($mdToast, $mdDialog, Report) {
+
+      this.createReg = Report.createReg;
+      this.updateReg = Report.updateReg;
+      this.employees = Report.getAll();
+
+
+      this.confirm = function(){
+        console.log('clicked');
+      }
+
+
+      // console.log('test');
       this.query ={
         order: 'name',
         limit: 5,
