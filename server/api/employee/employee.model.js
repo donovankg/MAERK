@@ -66,6 +66,9 @@ var EmployeeSchema = new mongoose.Schema({
   start_date:{
     type:Date,
     default:Date.now()
+  },
+  total_hour:{
+    type: Number
   }
 });
 
