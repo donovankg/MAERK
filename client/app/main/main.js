@@ -25,5 +25,12 @@ angular.module('maerkApp')
         controller: 'ClientController',
         controllerAs: 'cli',
         authenticate: true
+      })
+      .state('main.register-month', {
+        url: '/register-month',
+        templateUrl: 'app/register/register-month.html',
+        controller: 'RegController',
+        controllerAs: 'Reg',
+        authenticate: true
       });
   });

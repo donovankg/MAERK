@@ -62,10 +62,6 @@ var EmployeeSchema = new mongoose.Schema({
   activate: {
     type: Boolean,
     required: true
-  },
-  start_date:{
-    type:Date,
-    default:Date.now()
   }
 });
 
