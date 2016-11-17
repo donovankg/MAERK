@@ -4,23 +4,34 @@
   angular.module('maerkApp')
     .controller('RegController', function($mdToast, $mdDialog, Report, Empfactory) {
 
+      this.year = 1;
+      this.month = "january";
+
+
       this.createReg = Report.createReg;
       this.updateReg = Report.updateReg;
-      this.employees = Empfactory.getAll();
+      this.report = Report.getAll();
 
-
-      this.confirm = function(){
-        console.log('clicked');
+      this.confirm = function() {
+        console.log('update correct month thats open');
+    // this.updatereg()
+//send this to the service so it can update the report table
+      }
+      this.loadPast= function(){
+        this.year = 0;
+        this.month = "february";
+        console.log('toast popup with month and year selector');
       }
 
-
       // console.log('test');
-      this.query ={
+      this.query = {
         order: 'name',
         limit: 5,
         page: 1
       }
       this.limitOptions = [5, 10, 15];
+      this.total = 20;
+      // console.log(this.employees);
 
       this.options = {
         rowSelection: true,
@@ -32,7 +43,7 @@
         limitSelect: true,
         pageSelect: true
       };
-      this.logPagination = function (page, limit) {
+      this.logPagination = function(page, limit) {
         console.log('page: ', page);
         console.log('limit: ', limit);
       }

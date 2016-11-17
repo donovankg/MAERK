@@ -1,58 +1,37 @@
 <form class="form" name="newMonth" novalidate layout="column" type="submit">
 
-<md-toolbar class="md-accent" layout="row" layout-margin="5px">
+  <md-toolbar class="md-accent" layout="row" layout-margin="5px">
 
-  <div class="md-toolbar-tools" flex>
-    <div class="md-title">Register Monthly Hours</div>
-  </div>
-  <md-input-container class="md-block" flex>
-    <label for="">Month</label>
-    <input type="text" id="gMMonth" name="month" ng-model="month" required>
-    <div ng-messages="newMonth.month.$error">
-      <div ng-message="required">please enter the month.</div>
+    <div class="md-toolbar-tools" flex>
+      <div class="md-title">Register Monthly Hours</div>
     </div>
-  </md-input-container>
-  <md-input-container class="md-block" flex>
-    <label for="">Year</label>
-    <input type="number" id="gMYear" name="year" min="2007" ng-model="rep.year" required>
-    <div ng-messages="newMonth.year.$error">
-      <div ng-message="required">please enter the year</div>
-    </div>
-  </md-input-container>
-  <md-button class="md-primary md-raised" ng-click="Reg.confirm()" ng-disabled="newMonth.$invalid" type="submit">
-    submit </md-button>
-</md-toolbar>
-<md-content flex layout-margin="5px">
+    <span>currently displaying {{Reg.month}} {{Reg.report[Reg.year].year}}</span>
+    <md-button class="md-primary md-raised" ng-click="Reg.loadPast()" ng-disabled="newMonth.$invalid" type="submit">
+      load past month
+    </md-button>
+    <md-button class="md-primary md-raised" ng-click="Reg.confirm()" ng-disabled="newMonth.$invalid" type="submit">
+      update current month
+    </md-button>
+  </md-toolbar>
+  <md-content flex layout-margin="5px">
+    <table md-table ng-model="Reg.report[0]['january']">
+      <thead md-head>
+        <tr md-row>
+          <th md-column md-numeric>Name</th>
+          <th md-column md-numeric>Clients</th>
+          <th md-column md-numeric>Input Hours</th>
+          <th md-column md-numeric>off set</th>
+        </tr>
+      </thead>
 
-    <md-table-container>
-      <table md-table ng-model="Reg.employees">
-        <thead md-head>
-          <tr md-row>
-            <th md-column>Name</th>
-            <th md-column>Clients</th>
-            <th md-column>Input Hours</th>
-            <th md-column>off set</th>
-
-          </tr>
-        </thead>
-        <tbody md-body>
-          <tr md-row ng-repeat="person in Reg.employees">
-            <td>{{person.first_name}} {{person.last_name}}</td>
-            <td>{{person.client}}</td>
-            <td><input type="number" ng-model="person.total_hour" min="0" textcontent="{{person.total_hour}}"></td>
-            <td><input type="number" ng-model="person.off_set" min="0" textcontent="{{person.off_set}}"></td>
-          </tr>
-        </tbody>
-      </table>
-    </md-table-container>
-
-</md-content>
+      <tbody md-body>
+        <tr md-row ng-repeat="person in Reg.report[Reg.year][Reg.month]">
+          <td md-cell>{{person.first_name}} {{person.last_name}}</td>
+          <td md-cell>{{person.client}}</td>
+          <td md-cell><input type="number" ng-model="person.total_hour" min="0" textcontent="{{person.total_hour}}"></td>
+          <td md-cell><input type="number" ng-model="person.off_set" min="0" textcontent="{{person.off_set}}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </md-content>
 </form>
-
-<ul>
-  <li> Each employee should have a monthly hour number input field</li>
-  <li> Each employee should have a field name other that will allow the manager to give and offset to solve any change on the employee's information within that month</li>
-  <li> Should have a save button that will communicate with the server to store the edited information
-  </li>
-  <li>Should have a Finish Month button that will validate that every user have hours information and will update the monthly report on the database. </li>
-</ul>
