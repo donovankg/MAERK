@@ -76,6 +76,14 @@ export function show(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
+export function getYear(req, res) {
+  return Report.findOne({year: req.params.year}).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 //
 // Creates a new Report in the DB
 export function create(req, res) {

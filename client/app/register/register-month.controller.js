@@ -4,24 +4,49 @@
   angular.module('maerkApp')
     .controller('RegController', function($mdToast, $mdDialog, Report, Empfactory) {
 
-      this.year = 1;
+
+      this.monthNames = ["january", "february", "march", "april", "may", "june",
+        "july", "august", "september", "october", "november", "december"
+      ];
+      var currentYear = new Date().getYear() + 1900;
+      var totalYears = [];
+      for (var i = 2007; i <= currentYear; i++) {
+        totalYears.push(i);
+      }
+      this.yearList = totalYears;
+      this.tempYear = 2015;
+
+      this.fromSelectYear = function () {
+        this.report = Report.getYear(this.tempYear);
+
+          console.log('clicked from select year');
+        }
+        //this.year = 9;
       this.month = "january";
-
-
+      console.log(this.year);
+      this.toastDate;
       this.createReg = Report.createReg;
       this.updateReg = Report.updateReg;
-      this.report = Report.getAll();
+      // this.report = Report.getYear('2014');
+      this.report = Report.getYear(this.tempYear);
 
       this.confirm = function() {
         console.log('update correct month thats open');
-    // this.updatereg()
-//send this to the service so it can update the report table
+        // this.updatereg()
+        //send this to the service so it can update the report table
       }
-      this.loadPast= function(){
-        this.year = 0;
-        this.month = "february";
-        console.log('toast popup with month and year selector');
+      this.loadPast = function() {
+        dateToast();
       }
+
+
+      // this.setDate = (date) => {
+      //     console.log(date.getYear()+1900);
+      //     console.log(monthNames[date.getMonth()]);
+      //     this.year = 0;
+      //     // this.year = date.getYear()+1900;
+      //     this.month =monthNames[date.getMonth()];
+      //   }
 
       // console.log('test');
       this.query = {

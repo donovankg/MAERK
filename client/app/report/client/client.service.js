@@ -2,7 +2,7 @@
 (function() {
   angular.module('maerkApp')
     .factory('Report', function($resource) {
-      var CliResource = $resource('/api/report/:id', {
+      var CliResource = $resource('/api/report/:id/:year', {
         id: '@_id'
       }, {
         getOne: {
@@ -31,7 +31,11 @@
           params: {
             month: 'month'
           }
+        },
+        getYear: {
+          method: 'get',
         }
+
       });
 
 
@@ -42,6 +46,10 @@
         new CliResource(newCli).$save().then(function(d) {
           Clis.push(d);
         })
+      }
+
+      var getYear = function(year){
+        return CliResource.getYear({'year': year});
       }
 
       var updateCli = function(d) {
@@ -77,6 +85,7 @@
         createCli: createCli,
         updateCli: updateCli,
         getAll: getAll,
+        getYear: getYear,
         CliResource: CliResource
       }
     });

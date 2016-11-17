@@ -9,7 +9,8 @@ import * as auth from '../../auth/auth.service';
 var router = Router();
 
 router.get('/', auth.hasRole("admin"), controller.index);
-router.get('/:id',  auth.hasRole("admin"), controller.show);
+router.get('/:year',  controller.getYear);
+// router.get('/:id',  auth.hasRole("admin"), controller.show);
 router.post('/',  auth.hasRole("admin"), controller.create);
 router.put('/:id',  auth.hasRole("admin"), controller.update);
 // router.patch('/:id', auth.isAuthenticated(), controller.update);

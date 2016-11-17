@@ -10,11 +10,122 @@ import Employee from '../api/employee/employee.model';
 import Report from '../api/report/report.model';
 
 Report.find({}).remove()
-.then(()=>{
-  Report.create({
-    year: 2015,
-    january: [
-      {
+  .then(() => {
+    Report.create({
+      year: 2007,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+    },{
+      year: 2008,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+    },{
+      year: 2009,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+    },{
+      year: 2010,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+      },{
+      year: 2011,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+},{
+      year: 2012,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+      },{
+      year: 2013,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+      },{
+      year: 2014,
+      january:[],
+      february:[],
+      march:[],
+      april:[],
+      may:[],
+      june:[],
+      july:[],
+      august:[],
+      september:[],
+      october:[],
+      november:[],
+      december:[]
+      },{
+      year: 2015,
+      january: [{
         "first_name": "Adam",
         "last_name": "Griffin",
         "client": [
@@ -59,10 +170,8 @@ Report.find({}).remove()
         "activate": false,
         "total_hour": 12345,
         "off_set": 54321
-      }
-    ],
-    february: [
-      {
+      }],
+      february: [{
         "first_name": "bob",
         "last_name": "feb",
         "client": [
@@ -107,11 +216,10 @@ Report.find({}).remove()
         "activate": false,
         "total_hour": 12345,
         "off_set": 54321
-      }
-    ]},{
-    year: 2016,
-    january: [
-      {
+      }]
+    }, {
+      year: 2016,
+      january: [{
         "first_name": "Adam2016",
         "last_name": "Griffin",
         "client": [
@@ -156,10 +264,8 @@ Report.find({}).remove()
         "activate": false,
         "total_hour": 12345,
         "off_set": 54321
-      }
-    ],
-    february: [
-      {
+      }],
+      february: [{
         "first_name": "bob",
         "last_name": "feb",
         "client": [
@@ -204,10 +310,9 @@ Report.find({}).remove()
         "activate": false,
         "total_hour": 12345,
         "off_set": 54321
-      }
-    ]
+      }]
+    });
   });
-});
 
 Thing.find({}).remove()
   .then(() => {
@@ -589,7 +694,7 @@ Employee.find({}).remove()
       "relocation": 1429,
       "immigration": 9515,
       "pay_vacation_cost": 7467,
-      "ksquare_hourly_cost":50,
+      "ksquare_hourly_cost": 50,
       "target_bill_rate": 109375,
       "client_bill_pay": 112658,
       "activate": true

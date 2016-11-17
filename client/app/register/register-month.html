@@ -1,20 +1,29 @@
 <form class="form" name="newMonth" novalidate layout="column" type="submit">
 
-  <md-toolbar class="md-accent" layout="row" layout-margin="5px">
+  <md-toolbar class="md-accent" layout="row" layout-margin="5px" id='getToast'>
 
     <div class="md-toolbar-tools" flex>
       <div class="md-title">Register Monthly Hours</div>
     </div>
-    <span>currently displaying {{Reg.month}} {{Reg.report[Reg.year].year}}</span>
-    <md-button class="md-primary md-raised" ng-click="Reg.loadPast()" ng-disabled="newMonth.$invalid" type="submit">
-      load past month
-    </md-button>
+    <span>currently displaying</span>
+    <md-input-container style="margin-right: 10px;">
+      <label>.</label>
+      <md-select ng-model="Reg.month">
+        <md-option ng-repeat="monthName in Reg.monthNames" value="{{monthName}}">{{monthName}}</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container style="margin-right: 10px;">
+      <label>.</label>
+      <md-select ng-model="Reg.tempYear" ng-change ="Reg.fromSelectYear()">
+        <md-option ng-repeat="year in Reg.yearList" value="{{year}}">{{year}}</md-option>
+      </md-select>
+    </md-input-container>
     <md-button class="md-primary md-raised" ng-click="Reg.confirm()" ng-disabled="newMonth.$invalid" type="submit">
       update current month
     </md-button>
   </md-toolbar>
   <md-content flex layout-margin="5px">
-    <table md-table ng-model="Reg.report[0]['january']">
+    <table md-table ng-model="Reg.report[Reg.month]">
       <thead md-head>
         <tr md-row>
           <th md-column md-numeric>Name</th>
@@ -25,7 +34,7 @@
       </thead>
 
       <tbody md-body>
-        <tr md-row ng-repeat="person in Reg.report[Reg.year][Reg.month]">
+        <tr md-row ng-repeat="person in Reg.report[Reg.month]">
           <td md-cell>{{person.first_name}} {{person.last_name}}</td>
           <td md-cell>{{person.client}}</td>
           <td md-cell><input type="number" ng-model="person.total_hour" min="0" textcontent="{{person.total_hour}}"></td>
