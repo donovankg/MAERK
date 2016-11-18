@@ -2,9 +2,9 @@
 (function(Register) {
 
   angular.module('maerkApp')
-    .controller('RegController', function($mdToast, $mdDialog, Report, Empfactory) {
+    .controller('RegController', function($q, $mdToast, $mdDialog, Report, Empfactory) {
 
-
+      this.month = "january";
       this.monthNames = ["january", "february", "march", "april", "may", "june",
         "july", "august", "september", "october", "november", "december"
       ];
@@ -16,14 +16,31 @@
       this.yearList = totalYears;
       this.tempYear = 2015;
 
-      this.fromSelectYear = function () {
-        this.report = Report.getYear(this.tempYear);
 
-          console.log('clicked from select year');
+
+
+      this.loader = function() {
+        if (this.report[this.month].length != 0) {
+          console.log('report found');
+
+        }else{
+          console.log('report is empty');
+          this.report[this.month] = Empfactory.getAll();
+          console.log(this.report[this.month]);
         }
-        //this.year = 9;
-      this.month = "january";
-      console.log(this.year);
+      }
+
+
+
+      this.fromSelectYear = function(month) {
+        Report.getYear(this.tempYear).$promise
+          .then((reportYear) => {
+            this.report = reportYear;
+            this.loader();
+          })
+      }
+
+
       this.toastDate;
       this.createReg = Report.createReg;
       this.updateReg = Report.updateReg;
@@ -31,24 +48,11 @@
       this.report = Report.getYear(this.tempYear);
 
       this.confirm = function() {
-        console.log('update correct month thats open');
-        // this.updatereg()
-        //send this to the service so it can update the report table
-      }
-      this.loadPast = function() {
-        dateToast();
+        console.log('push the changes to report DB');
+
       }
 
 
-      // this.setDate = (date) => {
-      //     console.log(date.getYear()+1900);
-      //     console.log(monthNames[date.getMonth()]);
-      //     this.year = 0;
-      //     // this.year = date.getYear()+1900;
-      //     this.month =monthNames[date.getMonth()];
-      //   }
-
-      // console.log('test');
       this.query = {
         order: 'name',
         limit: 5,

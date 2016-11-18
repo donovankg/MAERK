@@ -8,13 +8,13 @@
     <span>currently displaying</span>
     <md-input-container style="margin-right: 10px;">
       <label>.</label>
-      <md-select ng-model="Reg.month">
-        <md-option ng-repeat="monthName in Reg.monthNames" value="{{monthName}}">{{monthName}}</md-option>
+      <md-select ng-model="Reg.month" ng-change="Reg.fromSelectYear(Reg.month)">
+        <md-option ng-repeat="monthName in Reg.monthNames" value="{{monthName}}" >{{monthName}}</md-option>
       </md-select>
     </md-input-container>
     <md-input-container style="margin-right: 10px;">
       <label>.</label>
-      <md-select ng-model="Reg.tempYear" ng-change ="Reg.fromSelectYear()">
+      <md-select ng-model="Reg.tempYear" ng-change ="Reg.fromSelectYear(Reg.month)">
         <md-option ng-repeat="year in Reg.yearList" value="{{year}}">{{year}}</md-option>
       </md-select>
     </md-input-container>

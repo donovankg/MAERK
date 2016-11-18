@@ -31,6 +31,9 @@ angular.module('maerkApp')
         templateUrl: 'app/register/register-month.html',
         controller: 'RegController',
         controllerAs: 'Reg',
-        authenticate: true
+        authenticate: true,
+        resolve:{
+
+        }
       });
   });

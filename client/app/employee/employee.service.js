@@ -21,10 +21,7 @@
           }
         }
       });
-      // resourceMethods
-      // var EmpResource = $resource(EmpService + ":id", {
-      //   id: "@_id"
-      // });
+
 
       var emps = EmpResource.query();
       // spot to add delete emp later on
