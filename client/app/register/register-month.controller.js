@@ -4,7 +4,8 @@
   angular.module('maerkApp')
     .controller('RegController', function($q, $mdToast, $mdDialog, Report, Empfactory) {
 
-      this.month = "january";
+      this.month ="january";
+
       this.monthNames = ["january", "february", "march", "april", "may", "june",
         "july", "august", "september", "october", "november", "december"
       ];
@@ -14,19 +15,17 @@
         totalYears.push(i);
       }
       this.yearList = totalYears;
-      this.tempYear = 2015;
+      this.tempYear = new Date().getYear()+1900;
 
 
 
 
       this.loader = function() {
         if (this.report[this.month].length != 0) {
-          console.log('report found');
-
+          console.log('from reports DB');
         }else{
-          console.log('report is empty');
+          console.log('import from employee DB');
           this.report[this.month] = Empfactory.getAll();
-          console.log(this.report[this.month]);
         }
       }
 
@@ -48,8 +47,9 @@
       this.report = Report.getYear(this.tempYear);
 
       this.confirm = function() {
-        console.log('push the changes to report DB');
 
+        console.log('push the changes to report DB');
+        Report.createCli(this.report);
       }
 
 
