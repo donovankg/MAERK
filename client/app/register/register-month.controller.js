@@ -52,9 +52,8 @@
           this.import = function() {
             this.report[this.month] = angular.copy(Empfactory.getAll());
 
-            
+            setTimeout(function(){this.fromSelectYear,300});
 
-            // this.fromSelectYear();
 
               }
             this.confirm = function() {
