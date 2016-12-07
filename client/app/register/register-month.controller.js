@@ -22,38 +22,24 @@
 
 
 
-          this.loader = function() {
-            if (this.report[this.month].length != 0) {
-              console.log('from reports DB');
-              console.log('----report db--->', this.report)
-
-
-
-            } else {
-
-              console.log('promise area');
-
-
-
-              // this.report[this.month] = Empfactory.getAll();
-              // this.report[this.month].$promise.then(function() {
-                // Report.createCli(this.report);
-                // self.confirm();
-                console.log('now update the report');
-              // });
-              // this.report[this.month] = Empfactory.getAll();
-              //push to reports DB
-
-
-            }
-          }
+          // this.loader = function() {
+          //   if (this.report[this.month].length != 0) {
+          //     console.log('from reports DB');
+          //     console.log('----report db--->', this.report)
+          //
+          //   } else {
+          //
+          //       console.log('now update the report');
+          //
+          //
+          //   }
+          // }
 
           this.fromSelectYear = function(month) {
             Report.getYear(this.tempYear).$promise
               .then((reportYear) => {
                 this.report = reportYear;
-                this.loader();
-                //pushes the content to reports DB before they edit it
+                this.confirm;
               })
           }
 
@@ -61,14 +47,16 @@
           this.toastDate;
           this.createReg = Report.createReg;
           this.updateReg = Report.updateReg;
-          // this.report = Report.getYear('2014');
           this.report = Report.getYear(this.tempYear);
           var self = this;
           this.import = function() {
-            this.report[this.month] = Empfactory.getAll();
+            this.report[this.month] = angular.copy(Empfactory.getAll());
+
+            
+
+            // this.fromSelectYear();
 
               }
-
             this.confirm = function() {
 
               console.log('push the changes to report DB');
