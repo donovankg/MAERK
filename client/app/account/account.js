@@ -2,6 +2,7 @@
 
 angular.module('maerkApp')
   .constant("EmpService", "http://localhost:9000/api/employee")
+  .constant("RegService","http://localhost:9000/api/register-month")
   .config(function($stateProvider) {
     $stateProvider.state('login', {
         url: '/',

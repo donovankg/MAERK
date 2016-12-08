@@ -1,18 +1,21 @@
 <md-content>
   <md-content>
+    <md-select ng-model="Reg.tempYear" ng-change ="Reg.fromSelectYear(Reg.month)">
+      <md-option ng-repeat="year in cli.yearList" value="{{year}}">{{year}}</md-option>
+    </md-select>
     <md-tabs>
-      <md-tab label="Jan" ng-click="cli.monthSelect('jan')"></md-tab>
-      <md-tab label="Feb" ng-click="cli.monthSelect('feb')"></md-tab>
-      <md-tab label="Mar" ng-click="cli.monthSelect('mar')"></md-tab>
-      <md-tab label="Apr" ng-click="cli.monthSelect('apr')"></md-tab>
+      <md-tab label="Jan" ng-click="cli.monthSelect('january')"></md-tab>
+      <md-tab label="Feb" ng-click="cli.monthSelect('february')"></md-tab>
+      <md-tab label="Mar" ng-click="cli.monthSelect('march')"></md-tab>
+      <md-tab label="Apr" ng-click="cli.monthSelect('april')"></md-tab>
       <md-tab label="May" ng-click="cli.monthSelect('may')"></md-tab>
-      <md-tab label="Jun" ng-click="cli.monthSelect('jun')"></md-tab>
-      <md-tab label="Jul" ng-click="cli.monthSelect('jul')"></md-tab>
-      <md-tab label="Aug" ng-click="cli.monthSelect('aug')"></md-tab>
-      <md-tab label="Sept" ng-click="cli.monthSelect('sept')"></md-tab>
-      <md-tab label="Oct" ng-click="cli.monthSelect('oct')"></md-tab>
-      <md-tab label="Nov" ng-click="cli.monthSelect('nov')"></md-tab>
-      <md-tab label="Dec" ng-click="cli.monthSelect('dec')"></md-tab>
+      <md-tab label="Jun" ng-click="cli.monthSelect('june')"></md-tab>
+      <md-tab label="Jul" ng-click="cli.monthSelect('july')"></md-tab>
+      <md-tab label="Aug" ng-click="cli.monthSelect('august')"></md-tab>
+      <md-tab label="Sept" ng-click="cli.monthSelect('september')"></md-tab>
+      <md-tab label="Oct" ng-click="cli.monthSelect('october')"></md-tab>
+      <md-tab label="Nov" ng-click="cli.monthSelect('november')"></md-tab>
+      <md-tab label="Dec" ng-click="cli.monthSelect('december')"></md-tab>
     </md-tabs>
   </md-content>
 </md-content>

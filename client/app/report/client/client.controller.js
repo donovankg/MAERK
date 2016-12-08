@@ -2,11 +2,68 @@
 (function(Client) {
 
   angular.module('maerkApp.client')
-    .controller('ClientController', function(Clifactory, $mdToast, $mdDialog) {
+    .controller('ClientController', function(Report, $mdToast, $mdDialog, Empfactory) {
 
-      self.createCli = Clifactory.createCli;
-      self.updateCli = Clifactory.updateCli;
-      self.Clients = Clifactory.getAll();
+
+
+this.month = "january";
+var currentYear = new Date().getYear() + 1900;
+var totalYears = [];
+for (var i = 2007; i <= currentYear; i++) {
+  totalYears.push(i);
+}
+this.yearList = totalYears;
+this.tempYear = new Date().getYear() + 1900;
+
+
+//this was new
+var clientReport;
+
+
+
+Report.getYear(new Date().getYear() + 1900).$promise.then((report)=>{
+// console.log('here');
+// console.log(report['january'])
+// Clients =  report;
+clientReport =  getDataFormatted(report);
+
+  this.monthSelect('january')
+});
+
+function getDataFormatted(report){
+  // console.log(report['january'].length); //emps in a month
+
+  console.log(report['january'][0]);
+    // console.log(report['january'][0]['client'].length);//clients for set emps
+
+var newChart = {
+  name: 'Mudo',
+  count: 10,
+  rev: 2000
+
+};
+for(var i =0; i < report['january'].length-1; i++){
+  console.log(report['january'][i].first_name)
+// console.log(report['january'][i]['client'].length);
+  for(var j = 0; j < report['january'][i]['client'].length;j++){
+    console.log('here');
+        console.log('---->',report['january'][i]['client'][Object.keys(report['january'][i]['client'])[j]]);
+        console.log(newChart.name);
+        console.log(report['january'][i]['client']);
+  }
+}
+
+    return report;
+}
+
+      this.createCli = Report.createCli;
+      this.updateCli = Report.updateCli;
+    //  this.Clients = Report.getAll();
+
+
+
+      // console.log('----this.clients-->',this.Clients.0])
+
 
       function MainCtrl() {
         this.config = {
@@ -25,7 +82,7 @@
       }
       var reports = {
         'count': 10,
-        'jan': [{
+        january: [{
           name: "verizon",
           count: 10,
           rev: 12000
@@ -66,7 +123,7 @@
           count: 7,
           rev: 8000
         }],
-        'feb': [{
+        february: [{
           name: "verison",
           count: 8,
           rev: 6000
@@ -78,7 +135,37 @@
           name: "disney",
           count: 9,
           rev: 12000
-        }]
+        }],
+        march:[{
+          name: 'att',
+          count: 5,
+          rev: 8000
+        }, {
+          name: "disney",
+          count: 9,
+          rev: 12000
+        }],
+        april:[{
+          name: 'att',
+          count: 2,
+          rev: 8000
+        }, {
+          name: "disney",
+          count: 9,
+          rev: 12000
+        },{
+          name: "verison",
+          count: 8,
+          rev: 6000
+        }],
+        may:[],
+        june:[],
+        july:[],
+        august:[],
+        september:[],
+        october:[],
+        november:[],
+        december:[]
       };
 
       //pagination
@@ -132,24 +219,29 @@
           height: 100
         }
       };
-      var month = 'jan';
+
+      //change this to pick the month
+      var month = 'january';
       this.total = reports[month].length;
       chart1.formatters = {
         number: [{
           columnNum: 1,
           pattern: 'employees '
-            // pattern: "$ #,##0.00"
         }]
       };
       this.monthSelect = function(month) {
+        //chart1.data builds the chart
+
+        // console.log(Clients['january'])
         chart1.data = createChartData(reports[month], "count");
+        // chart1.data = createChartData(clientReport[month], "count");
         this.tableData = reports[month];
-        console.log(reports[month].length);
+        // console.log(reports[month].length);
       }
+      //this makes the chart with the data
       this.chart = chart1;
-      this.monthSelect('jan');
-      // console.log(this.chart);
-      this.tableData = reports.jan;
+
+      // this.tableData = reports.jan;
 
     })
 })();

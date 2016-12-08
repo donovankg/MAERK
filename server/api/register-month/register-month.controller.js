@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/Report              ->  index
- * POST    /api/Report              ->  create
- * GET     /api/Report/:id          ->  show
- * PUT     /api/Report/:id          ->  update
- * DELETE  /api/Report/:id          ->  destroy
+ * GET     /api/Employee              ->  index
+ * POST    /api/Employee              ->  create
+ * GET     /api/Employee/:id          ->  show
+ * PUT     /api/Employee/:id          ->  update
+ * DELETE  /api/Employee/:id          ->  destroy
  */
 
 'use strict';
 
 import _ from 'lodash';
-import Report from './report.model';
-
+import register-month from './register-month.model';
+/*
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -56,51 +56,44 @@ function handleEntityNotFound(res) {
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
   return function(err) {
-    console.log(err );
+    console.log(err.message);
     res.status(statusCode).send(err)
 
   };
 }
 
-// Gets a list of Report
+// Gets a list of Employee
 export function index(req, res) {
-  return Report.find().exec()
+  return Employee.find().exec()
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
 //
-// Gets a single Report from the DB
+// Gets a single Employee from the DB
 export function show(req, res) {
-  return Report.findById(req.params.id).exec()
+  return Employee.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
-
-export function getYear(req, res) {
-  return Report.findOne({year: req.params.year}).exec()
-    .then(handleEntityNotFound(res))
-    .then(respondWithResult(res))
-    .catch(handleError(res));
-}
-
 //
-// Creates a new Report in the DB
+// Creates a new Employee in the DB
 export function create(req, res) {
   console.log('in create line 79');
-  return Report.create(req.body)
+  return Employee.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// // Updates an existing Report in the DB
+// // Updates an existing Employee in the DB
 export function update(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  return Report.findById(req.params.id).exec()
+  return Employee.findById(req.params.id).exec()
     .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+*/

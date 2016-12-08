@@ -5,16 +5,16 @@
     .controller('EmployeeController', function(Empfactory, $mdToast, $mdDialog) {
       var errors = {};
       var submitted = false;
-      var self = this;
       var empRows = {};
       var editEmp = {};
-      self.createEmp = Empfactory.createEmp;
-      self.updateEmp = Empfactory.updateEmp;
-      self.employees = Empfactory.getAll();
+      this.createEmp = Empfactory.createEmp;
+      this.updateEmp = Empfactory.updateEmp;
+      this.employees = Empfactory.getAll();
+
       this.addEmp = function(ev) {
-        for (var i = 0; i < self.employees.length; i++) {
-          if (self.employees[i]._id == empRows[0]) {
-             editEmp = self.employees[i];
+        for (var i = 0; i < this.employees.length; i++) {
+          if (this.employees[i]._id == empRows[0]) {
+             editEmp = this.employees[i];
             break;
           }else{
             editEmp = {};
@@ -34,6 +34,7 @@
           }
         });
       };
+
       this.deleteRowCallBack = function(rows) {
         $mdToast.show(
           $mdToast.simple()
@@ -43,15 +44,15 @@
       }
       this.statusEmp = function(status) {
         for (var i = 0; i < empRows.length; i++) {
-          for (var j = 0; j < self.employees.length; j++) {
-            if (self.employees[j]._id == empRows[i]) {
-              editEmp = self.employees[j];
+          for (var j = 0; j < this.employees.length; j++) {
+            if (this.employees[j]._id == empRows[i]) {
+              editEmp = this.employees[j];
               if (status === '1') {
                 editEmp.activate = true;
               } else {
                 editEmp.activate = false;
               }
-              self.updateEmp(editEmp);
+              this.updateEmp(editEmp);
               break;
             }
           }
