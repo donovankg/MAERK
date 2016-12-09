@@ -39,7 +39,7 @@
   </md-toolbar>
   <md-content flex layout="column">
 
-    <mdt-table selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" delete-row-callback="deleteRowCallBack(rows)" selected-row-callback="emp.selectedRowCallback(rows)" mdt-row="{
+    <mdt-table selectable-rows="true" paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20]}" delete-row-callback="emp.deleteRowCallBack(rows)" selected-row-callback="emp.selectedRowCallback(rows)" mdt-row="{
                       data: empfiltered,
                       'table-row-id-key': '_id',
                       'column-keys': [
