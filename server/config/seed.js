@@ -191,7 +191,9 @@ Employee.find({}).remove()
       "first_name": "Adam",
       "last_name": "Griffin",
       "client": [
-        "Mudo"
+        "Mudo",
+        "Dabtype"
+
       ],
       "skill": [
         "DDA"
