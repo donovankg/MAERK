@@ -40,6 +40,7 @@
               .then((reportYear) => {
                 this.report = reportYear;
                 this.confirm;
+
               })
           }
 
@@ -52,14 +53,14 @@
           this.import = function() {
             this.report[this.month] = angular.copy(Empfactory.getAll());
 
-            
+
 
             // this.fromSelectYear();
 
               }
             this.confirm = function() {
 
-              console.log('push the changes to report DB');
+              // console.log('push the changes to report DB');
               Report.createCli(this.report);
             }
 
@@ -84,8 +85,8 @@
               pageSelect: true
             };
             this.logPagination = function(page, limit) {
-              console.log('page: ', page);
-              console.log('limit: ', limit);
+              // console.log('page: ', page);
+              // console.log('limit: ', limit);
             }
 
             function createChartData(array, prop) {

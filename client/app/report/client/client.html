@@ -1,8 +1,11 @@
 <md-content>
   <md-content>
-    <md-select ng-model="Reg.tempYear" ng-change ="Reg.fromSelectYear(Reg.month)">
-      <md-option ng-repeat="year in cli.yearList" value="{{year}}">{{year}}</md-option>
-    </md-select>
+    <md-input-container style="margin-right: 10px;">
+      <label>Select Year</label>
+      <md-select ng-model="cli.tempYear" ng-change="cli.fromSelectYear()">
+        <md-option ng-repeat="year in cli.yearList" value="{{year}}">{{year}}</md-option>
+      </md-select>
+    </md-input-container>
     <md-tabs>
       <md-tab label="Jan" ng-click="cli.monthSelect('january')"></md-tab>
       <md-tab label="Feb" ng-click="cli.monthSelect('february')"></md-tab>
@@ -19,7 +22,7 @@
     </md-tabs>
   </md-content>
 </md-content>
-<md-toolbar >
+<md-toolbar>
   <div class="md-toolbar-tools">
     <div class="md-title">Client Report</div>
   </div>
@@ -48,10 +51,8 @@
         </tbody>
       </table>
     </md-table-container>
-        <md-table-pagination layout = "row" md-limit="cli.query.limit"  md-limit-options="cli.limitOptions"
-        md-page="cli.query.page" md-total="{{cli.total}}" md-page-select="cli.options.pageSelect"
-        md-boundary-links="cli.options.boundaryLinks" md-on-paginate="cli.logPagination">
-      </md-table-pagination>
+    <md-table-pagination layout="row" md-limit="cli.query.limit" md-limit-options="cli.limitOptions" md-page="cli.query.page" md-total="{{cli.total}}" md-page-select="cli.options.pageSelect" md-boundary-links="cli.options.boundaryLinks" md-on-paginate="cli.logPagination">
+    </md-table-pagination>
   </md-content>
   <!-- chart -->
   <div flex>
