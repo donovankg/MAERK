@@ -15,7 +15,6 @@
         }]
       };
 
-
       var finalReport = {};
 
       this.month = "january";
@@ -44,7 +43,6 @@
       });
 
       function getDataFormatted(report) {
-        // console.log(report['january'].length); //emps in a month
 
         var newChart = {
           name: 'Mudo',
@@ -53,10 +51,11 @@
 
         };
 var countLoop = 0;
-var hashmap = {};
+
+
         // --------------------- loop set to get data from the reports to the charts
         for (var i = 0; i < report['january'].length; i++) {
-            console.log('each person',report['january'][i]);
+            // console.log('each person',report['january'][i]);
 
 
           for (var j = 0; j < report['january'][i]['client'].length; j++) {
@@ -68,13 +67,13 @@ var hashmap = {};
               var name = 'name';
               var count = 'count';
               var rev = 'rev'
-              var countVal = 0;
+              var countVal = 2;
               var totalRev =10;
               testObj[name] = report['january'][i]['client'][j];
-              testObj[count] = 0;
+              testObj[count] = i+1;
               testObj[rev] = 1000;
             }
-            console.log('-testObj-->',testObj);
+            // console.log('-testObj-->',testObj);
             reports['january'][countLoop] = testObj;
             countLoop++;
             // console.log('--here new obj--->',testObj)
@@ -87,8 +86,8 @@ var hashmap = {};
           }
 
         }
-        console.log(reports);
-        return report;
+        console.log('---after---->',reports);
+        // return reports;
       }
 
       this.createCli = Report.createCli;
@@ -173,7 +172,7 @@ var hashmap = {};
       //change this to pick the month
       var month = 'january';
       // this.total =clientReport[2016][month].length;
-      this.total = reports[month].length;
+      this.total = reports['january'].length;
       chart1.formatters = {
         number: [{
           columnNum: 1,
@@ -181,9 +180,9 @@ var hashmap = {};
         }]
       };
       this.monthSelect = function(month) {
-          chart1.data = createChartData(reports[month], "count");
+          chart1.data = createChartData(reports['january'], "count");
           this.month = month;
-          this.tableData = reports[month];
+          this.tableData = reports['january'];
         }
       this.chart = chart1;
 
