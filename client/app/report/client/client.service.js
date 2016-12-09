@@ -1,8 +1,8 @@
 'use strict';
 (function() {
   angular.module('maerkApp')
-    .factory('Clifactory', function($resource) {
-      var CliResource = $resource('/api/report/:id', {
+    .factory('Report', function($resource) {
+      var CliResource = $resource('/api/report/:id/:year', {
         id: '@_id'
       }, {
         getOne: {
@@ -31,7 +31,11 @@
           params: {
             month: 'month'
           }
+        },
+        getYear: {
+          method: 'get',
         }
+
       });
 
 
@@ -43,21 +47,18 @@
           Clis.push(d);
         })
       }
+      var getYear = function(year) {
+        return CliResource.getYear({
+          'year': year
+        });
+      }
 
       var updateCli = function(d) {
-        // console.log('----->',d);
-
         CliResource.update({
           _id: d._id
         }, d).$promise.then(function(newCliUpdated) {
-          // console.log(d);
-          // console.log(newCliUpdated.skill);
           for (var i = 0; i < Clis.length; i++) {
-
-
             if (Clis[i]._id == newCliUpdated._id) {
-              // Clis[i].skill = newCliUpdated.skill;
-              // Clis[i].skill = newCliUpdated.client;
               Clis[i] = newCliUpdated;
 
 
@@ -77,6 +78,7 @@
         createCli: createCli,
         updateCli: updateCli,
         getAll: getAll,
+        getYear: getYear,
         CliResource: CliResource
       }
     });

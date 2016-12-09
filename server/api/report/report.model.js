@@ -62,7 +62,14 @@ var EmployeeSchema = new mongoose.Schema({
   activate: {
     type: Boolean,
     required: true
+  },
+  total_hour:{
+    type: Number
+  },
+  off_set:{
+    type: Number
   }
+
 });
 
 var ReportSchema = new mongoose.Schema({
